@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Windows.UI;
+using System.Windows.Media;
 
-namespace Foodle.main.com.nhlstenden.foodle
+namespace CMS.main.com.nhlstenden.foodle
 {
     internal class UserSettings
     {

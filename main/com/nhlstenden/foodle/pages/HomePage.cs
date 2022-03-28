@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace CMS.main.com.nhlstenden.foodle.pages
 {
-    internal class WorkoutPage
+    internal class HomePage
     {
-
     }
 }

@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Foodle (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Foodle (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

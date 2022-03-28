@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 
-namespace Foodle.main.com.nhlstenden.foodle
+namespace CMS.main.com.nhlstenden.foodle
 {
     internal class UserSettings
     {

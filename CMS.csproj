@@ -122,6 +122,33 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="main\com\nhlstenden\foodle\ApiConnector.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\diet\Diet.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\diet\DietNutrient.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\diet\FoodIntake.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\enums\AmountType.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\enums\NutrientType.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\enums\WeekDay.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\FoodDataVisualisator.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\food\Food.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\food\FoodAmount.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\food\Nutrient.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\food\Recipe.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\pages\BrowsePage.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\pages\HomePage.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\pages\LoginPage.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\pages\UserSettingsPage.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\pages\windows\DietWindow.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\pages\windows\FoodInfoWindow.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\pages\windows\FoodIntakeWindow.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\pages\windows\WorkoutSessionWindow.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\pages\windows\WorkoutWindow.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\pages\WorkoutPage.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\SearchFilter.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\user\User.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\user\UserSettings.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\workout\Workout.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\workout\WorkoutSession.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

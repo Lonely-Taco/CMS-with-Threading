@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CMS.main.com.nhlstenden.foodle.pages.windows
+namespace CMS.main.com.nhlstenden.foodle
 {
-    internal class FoodInfoWindow
+    internal class UserDietPage
     {
+        FoodDataVisualisator foodDataVisualisator;
     }
 }

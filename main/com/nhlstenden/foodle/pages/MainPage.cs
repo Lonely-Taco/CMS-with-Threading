@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CMS.main.com.nhlstenden.foodle.pages
+namespace CMS.main.com.nhlstenden.foodle
 {
-    internal class UserSettingsPage
+    internal class MainPage
     {
     }
 }

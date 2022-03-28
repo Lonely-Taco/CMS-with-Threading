@@ -8,5 +8,10 @@ namespace CMS.main.com.nhlstenden.foodle.pages
 {
     internal class LoginPage
     {
+
+        public void CreateNewUser(String username)
+        {
+
+        }
     }
 }

@@ -8,5 +8,19 @@ namespace CMS.main.com.nhlstenden.foodle.pages
 {
     internal class HomePage
     {
+        public void GenerateGraphs()
+        {
+
+        }
+
+        public void OpenDietWindow()
+        {
+
+        }
+
+        public void OpenFoodIntakeWindow()
+        {
+
+        }
     }
 }

@@ -6,18 +6,15 @@ using System.Threading.Tasks;
 
 namespace CMS.main.com.nhlstenden.foodle
 {
-    internal class FoodIntake
+    internal class FoodIntake : FoodAmount
     {
-        List<FoodAmount> foodEaten;
-        List<Recipe> recipesEaten;
+        DateTime dateOfIntake;
 
-        public FoodIntake(List<FoodAmount> foodEaten, List<Recipe> recipesEaten)
+        public FoodIntake(Food food, AmountType amountType, float amount, DateTime dateOfIntake) : base(food, amountType, amount)
         {
-            this.foodEaten = foodEaten;
-            this.recipesEaten = recipesEaten;
+            this.dateOfIntake = dateOfIntake;
         }
 
-        internal List<FoodAmount> FoodEaten { get => foodEaten; set => foodEaten = value; }
-        internal List<Recipe> RecipesEaten { get => recipesEaten; set => recipesEaten = value; }
+        public DateTime DateOfIntake { get => dateOfIntake; set => dateOfIntake = value; }
     }
 }

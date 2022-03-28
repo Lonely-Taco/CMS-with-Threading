@@ -8,6 +8,11 @@ namespace CMS.main.com.nhlstenden.foodle.pages
 {
     internal class BrowsePage
     {
+        
 
+        public void OpenFoodInfoWindow()
+        {
+
+        }
     }
 }

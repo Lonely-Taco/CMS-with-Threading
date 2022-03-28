@@ -22,5 +22,7 @@ namespace CMS.main.com.nhlstenden.foodle
         public string DietName { get => dietName; set => dietName = value; }
         public string Description { get => description; set => description = value; }
         internal List<DietNutrient> DietNutrients { get => dietNutrients; set => dietNutrients = value; }
+
+
     }
 }

@@ -22,5 +22,11 @@ namespace CMS.main.com.nhlstenden.foodle
         public float Amount { get => amount; set => amount = value; }
         internal AmountType AmountType { get => amountType; set => amountType = value; }
         internal Food Food { get => food; set => food = value; }
+
+
+        public float GetNutrientAmount(DietNutrient dietNutrient)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

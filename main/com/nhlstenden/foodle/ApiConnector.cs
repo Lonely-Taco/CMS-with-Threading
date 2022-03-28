@@ -8,7 +8,11 @@ namespace CMS.main.com.nhlstenden.foodle
 {
     internal class ApiConnector
     {
-        private static String API_ENDPOINT = "";
+        private static Uri API_ENDPOINT;
 
+        public ApiConnector()
+        {
+            API_ENDPOINT = new Uri("");
+        }
     }
 }

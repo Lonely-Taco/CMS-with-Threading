@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CMS.main.com.nhlstenden.foodle.pages.windows
+namespace Foodle.main.com.nhlstenden.foodle.pages.windows
 {
     internal class FoodInfoWindow
     {

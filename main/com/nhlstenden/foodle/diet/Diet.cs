@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CMS.main.com.nhlstenden.foodle
+namespace Foodle.main.com.nhlstenden.foodle
 {
     internal class Diet
     {

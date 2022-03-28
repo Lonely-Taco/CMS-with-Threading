@@ -10,7 +10,20 @@ namespace CMS.main.com.nhlstenden.foodle
     {
         String foodId;
         List<String> labels;
-        String imageLocation;
+        Uri imageLocation;
         List<Nutrient> nutrients;
+
+        public Food(string foodId, List<string> labels, Uri imageLocation, List<Nutrient> nutrients)
+        {
+            this.foodId = foodId;
+            this.labels = labels;
+            this.imageLocation = imageLocation;
+            this.nutrients = nutrients;
+        }
+
+        public string FoodId { get => foodId; set => foodId = value; }
+        public List<string> Labels { get => labels; set => labels = value; }
+        public Uri ImageLocation { get => imageLocation; set => imageLocation = value; }
+        internal List<Nutrient> Nutrients { get => nutrients; set => nutrients = value; }
     }
 }

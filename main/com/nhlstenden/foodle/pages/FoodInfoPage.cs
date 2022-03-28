@@ -9,5 +9,6 @@ namespace CMS.main.com.nhlstenden.foodle
     internal class FoodInfoPage
     {
         Food foodToDisplay;
+
     }
 }

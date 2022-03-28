@@ -10,5 +10,14 @@ namespace CMS.main.com.nhlstenden.foodle
     {
         List<FoodAmount> foodEaten;
         List<Recipe> recipesEaten;
+
+        public FoodIntake(List<FoodAmount> foodEaten, List<Recipe> recipesEaten)
+        {
+            this.foodEaten = foodEaten;
+            this.recipesEaten = recipesEaten;
+        }
+
+        internal List<FoodAmount> FoodEaten { get => foodEaten; set => foodEaten = value; }
+        internal List<Recipe> RecipesEaten { get => recipesEaten; set => recipesEaten = value; }
     }
 }

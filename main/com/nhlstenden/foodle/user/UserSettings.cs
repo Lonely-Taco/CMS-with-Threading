@@ -11,5 +11,14 @@ namespace CMS.main.com.nhlstenden.foodle
     {
         List<SearchFilter> favouritedFilters;
         Color windowBorderColor;
+
+        public UserSettings(List<SearchFilter> favouritedFilters, Color windowBorderColor)
+        {
+            this.favouritedFilters = favouritedFilters;
+            this.windowBorderColor = windowBorderColor;
+        }
+
+        public Color WindowBorderColor { get => windowBorderColor; set => windowBorderColor = value; }
+        internal List<SearchFilter> FavouritedFilters { get => favouritedFilters; set => favouritedFilters = value; }
     }
 }

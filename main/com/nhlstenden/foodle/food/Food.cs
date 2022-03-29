@@ -14,7 +14,7 @@ namespace CMS.main.com.nhlstenden.foodle
         Uri imageLocation;
         List<Nutrient> nutrients;
 
-        public Food(string foodId, string foodName)
+        public Food(string foodId, string foodName, String imageLocation = "missing_image.jpg")
         {
             this.foodId = foodId;
             this.foodName = foodName;

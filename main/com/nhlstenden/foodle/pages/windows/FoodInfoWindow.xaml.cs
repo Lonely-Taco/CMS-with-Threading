@@ -35,6 +35,7 @@ namespace CMS.main.com.nhlstenden.foodle.pages.windows
             food = JsonConvert.DeserializeObject<Food>((string)e.Parameter);
 
             this.FoodNameLabel.Text = food.FoodName;
+            this.FoodIdLabel.Text = food.FoodId;
             base.OnNavigatedTo(e);
         }
     }

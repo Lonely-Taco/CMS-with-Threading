@@ -13,15 +13,8 @@
         <TextBox x:Name="FoodNameLabel" HorizontalAlignment="Left" Margin="53,139,0,0" TextWrapping="Wrap" Text="Food name: [missing]" VerticalAlignment="Top" Height="64" Width="542" FontSize="36" IsEnabled="False"/>
 
         <TextBox x:Name="FoodIdLabel" HorizontalAlignment="Left" Margin="53,208,0,0" TextWrapping="Wrap" Text="Food id: [missing]" VerticalAlignment="Top" Height="64" Width="542" FontSize="36" IsEnabled="False"/>
-        <Charting:Chart 
-            x:Name="PieChart" 
-            HorizontalAlignment="Left" 
-            VerticalAlignment="Top" 
-            Margin="846,227,0,0" Height="250" Width="261" >
-            <Charting:PieSeries x:Name="NutrientPieSeries" Margin="30,-14,10,14" 
-                 IndependentValuePath="nutrientType" 
-                 DependentValuePath="nutrientAmount" 
-                 IsSelectionEnabled="True"/>
+        <Charting:Chart x:Name="PieChart" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="700,76,0,0" Width="400" Height="400">
+            <Charting:PieSeries Name="NutrientPieSeries"  Margin="0" IndependentValuePath="NutrientName" DependentValuePath="NutrientAmount" IsSelectionEnabled="True"/>
         </Charting:Chart>
 
     </Grid>

@@ -5,12 +5,24 @@
     xmlns:local="using:CMS.main.com.nhlstenden.foodle.pages.windows"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Charting="using:WinRTXamlToolkit.Controls.DataVisualization.Charting"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="754" Width="1188">
 
     <Grid Margin="0,0,10,10">
         <TextBox x:Name="FoodNameLabel" HorizontalAlignment="Left" Margin="53,139,0,0" TextWrapping="Wrap" Text="Food name: [missing]" VerticalAlignment="Top" Height="64" Width="542" FontSize="36" IsEnabled="False"/>
+
         <TextBox x:Name="FoodIdLabel" HorizontalAlignment="Left" Margin="53,208,0,0" TextWrapping="Wrap" Text="Food id: [missing]" VerticalAlignment="Top" Height="64" Width="542" FontSize="36" IsEnabled="False"/>
+        <Charting:Chart 
+            x:Name="PieChart" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" 
+            Margin="846,227,0,0" Height="250" Width="261" >
+            <Charting:PieSeries x:Name="NutrientPieSeries" Margin="30,-14,10,14" 
+                 IndependentValuePath="nutrientType" 
+                 DependentValuePath="nutrientAmount" 
+                 IsSelectionEnabled="True"/>
+        </Charting:Chart>
 
     </Grid>
 </Page>

@@ -22,9 +22,53 @@ namespace CMS
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private FontFamily iconFont;
+
         public MainPage()
         {
             this.InitializeComponent();
+            iconFont = new FontFamily("Segoe MDL2 Assets");
+            InitializeMenuItems();
         }
+
+        private void InitializeMenuItems()
+        {
+            NavigationViewItem homeItem = new NavigationViewItem()
+            {
+                Content = "Home",
+                Icon = new FontIcon()
+                {
+                    FontFamily = iconFont,
+                    Glyph = "\xE80F"
+                }
+            };
+
+            NavigationViewItem browseItem = new NavigationViewItem()
+            {
+                Content = "Browse",
+                Icon = new FontIcon()
+                {
+                    FontFamily = iconFont,
+                    Glyph = "\xE80F"
+                }
+            };
+
+
+            NavigationViewItem workoutItem = new NavigationViewItem()
+            {
+                Content = "Workout",
+                Icon = new FontIcon()
+                {
+                    FontFamily = iconFont,
+                    Glyph = "\xE80F"
+                }
+            };
+
+            this.mainNavigationView.MenuItems.Add(homeItem);
+            this.mainNavigationView.MenuItems.Add(browseItem);
+            this.mainNavigationView.MenuItems.Add(workoutItem);
+        }
+
+
     }
 }

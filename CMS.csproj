@@ -134,16 +134,26 @@
     <Compile Include="main\com\nhlstenden\foodle\food\FoodAmount.cs" />
     <Compile Include="main\com\nhlstenden\foodle\food\Nutrient.cs" />
     <Compile Include="main\com\nhlstenden\foodle\food\Recipe.cs" />
-    <Compile Include="main\com\nhlstenden\foodle\pages\BrowsePage.cs" />
-    <Compile Include="main\com\nhlstenden\foodle\pages\HomePage.cs" />
-    <Compile Include="main\com\nhlstenden\foodle\pages\LoginPage.cs" />
-    <Compile Include="main\com\nhlstenden\foodle\pages\UserSettingsPage.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\pages\BrowsePage.xaml.cs">
+      <DependentUpon>BrowsePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="main\com\nhlstenden\foodle\pages\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="main\com\nhlstenden\foodle\pages\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="main\com\nhlstenden\foodle\pages\UserSettingsPage.xaml.cs">
+      <DependentUpon>UserSettingsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="main\com\nhlstenden\foodle\pages\windows\DietWindow.cs" />
     <Compile Include="main\com\nhlstenden\foodle\pages\windows\FoodInfoWindow.cs" />
     <Compile Include="main\com\nhlstenden\foodle\pages\windows\FoodIntakeWindow.cs" />
     <Compile Include="main\com\nhlstenden\foodle\pages\windows\WorkoutSessionWindow.cs" />
     <Compile Include="main\com\nhlstenden\foodle\pages\windows\WorkoutWindow.cs" />
-    <Compile Include="main\com\nhlstenden\foodle\pages\WorkoutPage.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\pages\WorkoutPage.xaml.cs">
+      <DependentUpon>WorkoutPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="main\com\nhlstenden\foodle\SearchFilter.cs" />
     <Compile Include="main\com\nhlstenden\foodle\user\User.cs" />
     <Compile Include="main\com\nhlstenden\foodle\user\UserSettings.cs" />
@@ -174,6 +184,26 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="main\com\nhlstenden\foodle\pages\BrowsePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="main\com\nhlstenden\foodle\pages\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="main\com\nhlstenden\foodle\pages\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="main\com\nhlstenden\foodle\pages\UserSettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="main\com\nhlstenden\foodle\pages\WorkoutPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

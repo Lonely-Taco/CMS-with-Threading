@@ -23,5 +23,20 @@ namespace CMS.main.com.nhlstenden.foodle.pages
         {
             this.InitializeComponent();
         }
+
+        private void GenerateGraphs()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OpenDietWindow()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OpenFoodIntakeWindow()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

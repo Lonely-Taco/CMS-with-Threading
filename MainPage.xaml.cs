@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CMS.main.com.nhlstenden.foodle.pages;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -53,7 +54,6 @@ namespace CMS
                 }
             };
 
-
             NavigationViewItem workoutItem = new NavigationViewItem()
             {
                 Content = "Workout",
@@ -67,8 +67,37 @@ namespace CMS
             this.mainNavigationView.MenuItems.Add(homeItem);
             this.mainNavigationView.MenuItems.Add(browseItem);
             this.mainNavigationView.MenuItems.Add(workoutItem);
+
+            this.mainNavigationView.SelectionChanged += MainNavigationView_SelectionChanged;
+
         }
 
+        private void MainNavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        {
+            try
+            {
+                if(args.SelectedItem is NavigationViewItem item)
+                {
+                    switch (item.Content)
+                    {
+                        case "Home":
+                            selectedItemFrame.Content = new HomePage();
+                            break;
+                        case "Browse":
 
+                            break;
+                        case "Workout":
+
+                            break;
+                        default:
+
+                            break;
+                    }
+                }
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }

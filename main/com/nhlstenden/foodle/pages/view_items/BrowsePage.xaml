@@ -10,6 +10,7 @@
     d:DesignWidth="400">
 
     <Grid>
+        <Button x:Name="FoodInfo" Content="Open food info window" Margin="165,83,0,0" VerticalAlignment="Top" Click="FoodInfo_Click"/>
 
     </Grid>
 </UserControl>

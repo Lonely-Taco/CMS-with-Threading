@@ -4,8 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -84,13 +88,12 @@ namespace CMS
                             selectedItemFrame.Content = new HomePage();
                             break;
                         case "Browse":
-
+                            selectedItemFrame.Content = new BrowsePage();
                             break;
                         case "Workout":
-
+                            selectedItemFrame.Content = new WorkoutPage();
                             break;
                         default:
-
                             break;
                     }
                 }
@@ -98,6 +101,27 @@ namespace CMS
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+
+        /// <summary>
+        /// Opens a page given the page type as a new window.
+        /// </summary>
+        /// <param name="t"></param>
+        private async Task<bool> OpenPageAsWindowAsync(Type t)
+        {
+            var view = CoreApplication.CreateNewView();
+            int id = 0;
+
+            await view.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                var frame = new Frame();
+                frame.Navigate(t, null);
+                Window.Current.Content = frame;
+                Window.Current.Activate();
+                id = ApplicationView.GetForCurrentView().Id;
+            });
+
+            return await ApplicationViewSwitcher.TryShowAsStandaloneAsync(id);
         }
     }
 }

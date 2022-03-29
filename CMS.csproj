@@ -119,7 +119,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="main\com\nhlstenden\foodle\pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="main\com\nhlstenden\foodle\ApiConnector.cs" />
@@ -134,25 +134,23 @@
     <Compile Include="main\com\nhlstenden\foodle\food\FoodAmount.cs" />
     <Compile Include="main\com\nhlstenden\foodle\food\Nutrient.cs" />
     <Compile Include="main\com\nhlstenden\foodle\food\Recipe.cs" />
-    <Compile Include="main\com\nhlstenden\foodle\pages\BrowsePage.xaml.cs">
+    <Compile Include="main\com\nhlstenden\foodle\pages\view_items\BrowsePage.xaml.cs">
       <DependentUpon>BrowsePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="main\com\nhlstenden\foodle\pages\HomePage.xaml.cs">
+    <Compile Include="main\com\nhlstenden\foodle\pages\view_items\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="main\com\nhlstenden\foodle\pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="main\com\nhlstenden\foodle\pages\UserSettingsPage.xaml.cs">
+    <Compile Include="main\com\nhlstenden\foodle\pages\view_items\UserSettingsPage.xaml.cs">
       <DependentUpon>UserSettingsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="main\com\nhlstenden\foodle\pages\windows\DietWindow.cs" />
-    <Compile Include="main\com\nhlstenden\foodle\pages\windows\FoodInfoWindow.cs" />
-    <Compile Include="main\com\nhlstenden\foodle\pages\windows\FoodIntakeWindow.cs" />
-    <Compile Include="main\com\nhlstenden\foodle\pages\windows\WorkoutSessionWindow.cs" />
-    <Compile Include="main\com\nhlstenden\foodle\pages\windows\WorkoutWindow.cs" />
-    <Compile Include="main\com\nhlstenden\foodle\pages\WorkoutPage.xaml.cs">
+    <Compile Include="main\com\nhlstenden\foodle\pages\view_items\WorkoutPage.xaml.cs">
       <DependentUpon>WorkoutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="main\com\nhlstenden\foodle\pages\windows\FoodInfoWindow.xaml.cs">
+      <DependentUpon>FoodInfoWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="main\com\nhlstenden\foodle\SearchFilter.cs" />
     <Compile Include="main\com\nhlstenden\foodle\user\User.cs" />
@@ -181,15 +179,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainPage.xaml">
+    <Page Include="main\com\nhlstenden\foodle\pages\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="main\com\nhlstenden\foodle\pages\BrowsePage.xaml">
+    <Page Include="main\com\nhlstenden\foodle\pages\view_items\BrowsePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="main\com\nhlstenden\foodle\pages\HomePage.xaml">
+    <Page Include="main\com\nhlstenden\foodle\pages\view_items\HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -197,11 +195,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="main\com\nhlstenden\foodle\pages\UserSettingsPage.xaml">
+    <Page Include="main\com\nhlstenden\foodle\pages\view_items\UserSettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="main\com\nhlstenden\foodle\pages\WorkoutPage.xaml">
+    <Page Include="main\com\nhlstenden\foodle\pages\view_items\WorkoutPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="main\com\nhlstenden\foodle\pages\windows\FoodInfoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -209,6 +211,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.13</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
     </PackageReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

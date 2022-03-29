@@ -6,22 +6,25 @@ using System.Threading.Tasks;
 
 namespace CMS.main.com.nhlstenden.foodle
 {
-    internal class Food
+    public class Food
     {
         String foodId;
+        String foodName;
         List<String> labels;
         Uri imageLocation;
         List<Nutrient> nutrients;
 
-        public Food(string foodId, List<string> labels, Uri imageLocation, List<Nutrient> nutrients)
+        public Food(string foodId, string foodName)
         {
             this.foodId = foodId;
-            this.labels = labels;
-            this.imageLocation = imageLocation;
-            this.nutrients = nutrients;
+            this.foodName = foodName;
+            this.labels = new List<string>();
+            this.imageLocation = null;
+            this.nutrients = new List<Nutrient>();
         }
 
         public string FoodId { get => foodId; set => foodId = value; }
+        public string FoodName { get => foodName; set => foodName = value;}
         public List<string> Labels { get => labels; set => labels = value; }
         public Uri ImageLocation { get => imageLocation; set => imageLocation = value; }
         internal List<Nutrient> Nutrients { get => nutrients; set => nutrients = value; }

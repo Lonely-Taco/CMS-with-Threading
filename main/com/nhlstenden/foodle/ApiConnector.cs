@@ -12,7 +12,7 @@ namespace CMS.main.com.nhlstenden.foodle
 
         public ApiConnector()
         {
-            EdamamApiClient.EdamamFoodService apiClient = new EdamamApiClient();
+            //EdamamApiClient.EdamamFoodService apiClient = new EdamamApiClient();
         }
 
         public List<Food> MakeAPIRequest()

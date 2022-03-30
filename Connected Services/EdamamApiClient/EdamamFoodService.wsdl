@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="getFood">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="foodName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getFoodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getFoodResult" type="tns:FoodDataObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FoodDataObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FoodName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getFoodSoapIn">
+    <wsdl:part name="parameters" element="tns:getFood" />
+  </wsdl:message>
+  <wsdl:message name="getFoodSoapOut">
+    <wsdl:part name="parameters" element="tns:getFoodResponse" />
+  </wsdl:message>
+  <wsdl:portType name="EdamamFoodServiceSoap">
+    <wsdl:operation name="getFood">
+      <wsdl:input message="tns:getFoodSoapIn" />
+      <wsdl:output message="tns:getFoodSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EdamamFoodServiceSoap" type="tns:EdamamFoodServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getFood">
+      <soap:operation soapAction="http://tempuri.org/getFood" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EdamamFoodServiceSoap12" type="tns:EdamamFoodServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getFood">
+      <soap12:operation soapAction="http://tempuri.org/getFood" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EdamamFoodService">
+    <wsdl:port name="EdamamFoodServiceSoap" binding="tns:EdamamFoodServiceSoap">
+      <soap:address location="https://localhost:44339/EdamamFoodService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EdamamFoodServiceSoap12" binding="tns:EdamamFoodServiceSoap12">
+      <soap12:address location="https://localhost:44339/EdamamFoodService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

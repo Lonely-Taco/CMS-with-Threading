@@ -6,10 +6,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="300"
-    d:DesignWidth="400">
+    d:DesignHeight="800"
+    d:DesignWidth="800">
 
     <Grid>
+        <Button Content="Add workout" Margin="500,725,0,0" VerticalAlignment="Top" Click="AddWorkout_Click"/>
+        <Button Content="Open workout session" Margin="299,725,0,0" VerticalAlignment="Top" Click="OpenSession_Click"/>
 
     </Grid>
 </UserControl>

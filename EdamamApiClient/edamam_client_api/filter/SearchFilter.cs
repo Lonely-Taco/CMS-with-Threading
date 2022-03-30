@@ -1,5 +1,4 @@
-﻿using EdamamApiClient.edamam_client_api.filter.enums;
-using EdamamApiClient.edamam_client_api.filter.types;
+﻿using EdamamApiClient.edamam_client_api.filter.types;
 using System;
 using System.Collections.Generic;
 using System.Linq;

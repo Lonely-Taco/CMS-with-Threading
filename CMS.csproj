@@ -119,10 +119,15 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="main\com\nhlstenden\foodle\ApiConnector.cs" />
+    <Compile Include="Connected Services\EdamamApiClient\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="main\com\nhlstenden\foodle\pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="main\com\nhlstenden\foodle\ApiConnector.cs" />
     <Compile Include="main\com\nhlstenden\foodle\diet\Diet.cs" />
     <Compile Include="main\com\nhlstenden\foodle\diet\DietNutrient.cs" />
     <Compile Include="main\com\nhlstenden\foodle\diet\FoodIntake.cs" />
@@ -165,6 +170,17 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\EdamamApiClient\CMS.EdamamApiClient.getFoodResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\EdamamApiClient\EdamamFoodService.wsdl" />
+    <None Include="Connected Services\EdamamApiClient\EdamamFoodService.disco" />
+    <None Include="Connected Services\EdamamApiClient\configuration91.svcinfo" />
+    <None Include="Connected Services\EdamamApiClient\configuration.svcinfo" />
+    <None Include="Connected Services\EdamamApiClient\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -220,10 +236,18 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="main\com\nhlstenden\resources\secrets.json" />
+    <None Include="main\com\nhlstenden\resources\secrets.json.example" />
+    <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
+  </ItemGroup>
+  <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
+    <WCFMetadataStorage Include="Connected Services\EdamamApiClient\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Service References\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

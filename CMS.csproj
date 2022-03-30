@@ -219,6 +219,10 @@
       <Version>2.3.0</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="main\com\nhlstenden\resources\secrets.json" />
+    <None Include="main\com\nhlstenden\resources\secrets.json.example" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

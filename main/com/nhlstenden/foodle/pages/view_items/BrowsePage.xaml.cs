@@ -51,24 +51,46 @@ namespace CMS.main.com.nhlstenden.foodle.pages
             var currentAV = ApplicationView.GetForCurrentView();
             var newAV = CoreApplication.CreateNewView();
             await newAV.Dispatcher.RunAsync(
-                            CoreDispatcherPriority.Normal,
-                            async () =>
-                            {
-                                var newWindow = Window.Current;
-                                var newAppView = ApplicationView.GetForCurrentView();
-                                newAppView.Title = "New window";
+                CoreDispatcherPriority.Normal,
+                async () =>
+                {
+                    var newWindow = Window.Current;
+                    var newAppView = ApplicationView.GetForCurrentView();
+                    newAppView.Title = "New window";
 
-                                var frame = new Frame();
-                                frame.Navigate(t, param);
-                                newWindow.Content = frame;
-                                newWindow.Activate();
+                    var frame = new Frame();
+                    frame.Navigate(t, param);
+                    newWindow.Content = frame;
+                    newWindow.Activate();
 
-                                await ApplicationViewSwitcher.TryShowAsStandaloneAsync(
-                                    newAppView.Id,
-                                    ViewSizePreference.UseMinimum,
-                                    currentAV.Id,
-                                    ViewSizePreference.UseMinimum);
-                            });
+                    await ApplicationViewSwitcher.TryShowAsStandaloneAsync(
+                        newAppView.Id,
+                        ViewSizePreference.UseMinimum,
+                        currentAV.Id,
+                        ViewSizePreference.UseMinimum);
+                });
+        }
+
+        private void NumberBox_OnTextChanging(TextBox sender, TextBoxTextChangingEventArgs args)
+        {
+            //remove any non-digits
+            string newText = new string(sender.Text.Where(char.IsDigit).ToArray());
+            //if empty string set an empty string
+            if (string.Equals(newText, string.Empty))
+            {
+                sender.Text = newText;
+            }
+            else
+            {
+                float input = -1;
+                float.TryParse(newText, out input);
+                //set the maximum number that can be input to 9999
+                input = Math.Min(input, 9999);
+                //change the text in the textbox
+                sender.Text = input.ToString();
+                //set the cursor to the end
+                sender.SelectionStart = sender.Text.Length;
+            }
         }
     }
 }

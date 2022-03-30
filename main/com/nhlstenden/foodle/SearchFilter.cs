@@ -8,7 +8,7 @@ namespace CMS.main.com.nhlstenden.foodle
 {
     internal class SearchFilter
     {
-        String textFilter;
+        string textFilter;
         int minCal;
         int maxCal;
         List<string> healthFilters;

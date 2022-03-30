@@ -10,7 +10,11 @@
     d:DesignWidth="400">
 
     <Grid>
-        <Button x:Name="FoodInfo" Content="Open food info window" Margin="165,83,0,0" VerticalAlignment="Top" Click="FoodInfo_Click"/>
-
+        <Button x:Name="FoodInfo" Content="Open food info window" Margin="241,258,0,0" VerticalAlignment="Top" Click="FoodInfo_Click" Height="32" Width="149" FontSize="11"/>
+        <TextBox HorizontalAlignment="Left" Margin="116,62,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="163"/>
+        <TextBox HorizontalAlignment="Left" Margin="10,62,0,0" TextWrapping="Wrap" Text="Food name:" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="116,107,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" PlaceholderText="Min" TextChanging="NumberBox_OnTextChanging"/>
+        <TextBox HorizontalAlignment="Left" Margin="10,107,0,0" TextWrapping="Wrap" Text="Calories:" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="209,107,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" PlaceholderText="Max" TextChanging="NumberBox_OnTextChanging"/>
     </Grid>
 </UserControl>

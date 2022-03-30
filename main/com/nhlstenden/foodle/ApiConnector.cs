@@ -8,7 +8,16 @@ namespace CMS.main.com.nhlstenden.foodle
 {
     internal class ApiConnector
     {
-        private static String API_ENDPOINT = "";
+        private static string API_ENDPOINT = "";
 
+        public ApiConnector()
+        {
+            EdamamApiClient.EdamamFoodService apiClient = new EdamamApiClient();
+        }
+
+        public List<Food> MakeAPIRequest()
+        {
+            return new List<Food>();
+        }
     }
 }

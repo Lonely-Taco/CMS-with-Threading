@@ -119,10 +119,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="main\com\nhlstenden\foodle\ApiConnector.cs" />
     <Compile Include="main\com\nhlstenden\foodle\pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="main\com\nhlstenden\foodle\ApiConnector.cs" />
     <Compile Include="main\com\nhlstenden\foodle\diet\Diet.cs" />
     <Compile Include="main\com\nhlstenden\foodle\diet\DietNutrient.cs" />
     <Compile Include="main\com\nhlstenden\foodle\diet\FoodIntake.cs" />
@@ -218,6 +218,12 @@
     <PackageReference Include="WinRTXamlToolkit.Controls.DataVisualization.UWP">
       <Version>2.3.0</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

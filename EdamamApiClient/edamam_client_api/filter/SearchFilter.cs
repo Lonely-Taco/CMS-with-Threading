@@ -1,12 +1,13 @@
-﻿using System;
+﻿using EdamamApiClient.edamam_client_api.filter.types;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CMS.main.com.nhlstenden.foodle
+namespace EdamamApiClient.edamam_client_api.filter
 {
-    internal class SearchFilter
+    public class SearchFilter
     {
         String textFilter;
         int minCal;
@@ -31,6 +32,10 @@ namespace CMS.main.com.nhlstenden.foodle
             this.dietTypeFilters = dietTypeFilters;
         }
 
+        public SearchFilter()
+        {
+        }
+
         public string TextFilter { get => textFilter; set => textFilter = value; }
         public int MinCal { get => minCal; set => minCal = value; }
         public int MaxCal { get => maxCal; set => maxCal = value; }
@@ -39,5 +44,31 @@ namespace CMS.main.com.nhlstenden.foodle
         public List<string> CuisineTypeFilters { get => cuisineTypeFilters; set => cuisineTypeFilters = value; }
         public List<string> MealTypeFilters { get => mealTypeFilters; set => mealTypeFilters = value; }
         public List<string> DietTypeFilters { get => dietTypeFilters; set => dietTypeFilters = value; }
+
+        public List<FilterObject> getFilters()
+        {
+            List<FilterObject> filters = new List<FilterObject>();
+            foreach(string healthFilter in HealthFilters)
+            {
+                filters.Add(new FilterObject(healthFilter, "Health"));
+            }
+            foreach (string dishTypeFilter in DishTypeFilters)
+            {
+                filters.Add(new FilterObject(dishTypeFilter, "dishType"));
+            }
+            foreach (string cuisineTypeFilter in CuisineTypeFilters)
+            {
+                filters.Add(new FilterObject(cuisineTypeFilter, "cuisineType"));
+            }
+            foreach (string mealTypeFilter in MealTypeFilters)
+            {
+                filters.Add(new FilterObject(mealTypeFilter, "mealType"));
+            }
+            foreach (string dietTypeFilter in DietTypeFilters)
+            {
+                filters.Add(new FilterObject(dietTypeFilter, "Diet"));
+            }
+            return filters;
+        } 
     }
 }

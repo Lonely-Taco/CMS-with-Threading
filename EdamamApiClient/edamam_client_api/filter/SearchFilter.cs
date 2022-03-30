@@ -13,10 +13,10 @@ namespace CMS.main.com.nhlstenden.foodle
         int minCal;
         int maxCal;
         List<string> healthFilters;
-        List<DishType> dishTypeFilters;
-        List<CuisineType> cuisineTypeFilters;
-        List<MealType> mealTypeFilters;
-        List<DietType> dietTypeFilters;
+        List<string> dishTypeFilters;
+        List<string> cuisineTypeFilters;
+        List<string> mealTypeFilters;
+        List<string> dietTypeFilters;
 
         public SearchFilter(string textFilter, int minCal, int maxCal, List<string> healthFilters, 
             List<string> dishTypeFilters, List<string> cuisineTypeFilters, List<string> mealTypeFilters, 

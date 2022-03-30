@@ -1,5 +1,4 @@
 ﻿using EdamamApiClient.data_objects;
-using EdamamApiClient.EdamamApiClient;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -10,6 +9,8 @@ using System.Web;
 using System.Web.Services;
 using System.Json;
 using CMS.main.com.nhlstenden.foodle;
+using EdamamApiClient.edamam_client_api.data_objects;
+using System.Web.Script.Serialization;
 
 namespace EdamamApiClient
 {
@@ -25,7 +26,7 @@ namespace EdamamApiClient
     {
 
         [WebMethod]
-        public FoodDataObject GetFood(string foodName)
+        public List<EdamamResponseObject.Food> GetFood(string foodName)
         {
             using (WebClient clinet = new WebClient())
             {
@@ -37,8 +38,8 @@ namespace EdamamApiClient
                 StreamReader responseReader = new StreamReader(responseStream);
 
                 string responseString = responseReader.ReadToEnd();
-                EdamamJsonParser jsonParser = new EdamamJsonParser();
-                return jsonParser.parseFoodJson();
+                EdamamResponseObject responseObject = new JavaScriptSerializer().Deserialize<EdamamResponseObject>(responseString);
+                return responseObject.getFood();
             }
 
         }
@@ -63,10 +64,11 @@ namespace EdamamApiClient
             throw new Exception("Could not find file secrets.json");
         }
 
-        private string getFilterUrlString(SearchFilter searchFilter)
-        {
-            for()
-            searchFilter.HealthFilters
-        }
+        //private string getFilterUrlString(SearchFilter searchFilter)
+        //{
+        //    for()
+        //    searchFilter.HealthFilters
+        //}
+
     }
 }

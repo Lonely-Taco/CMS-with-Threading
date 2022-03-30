@@ -1,4 +1,4 @@
-﻿namespace CMS.main.com.nhlstenden.foodle
+﻿namespace EdamamApiClient.edamam_client_api.filter.types
 {
     internal static class DishType
     {

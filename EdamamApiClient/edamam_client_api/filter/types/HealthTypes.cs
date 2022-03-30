@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace EdamamApiClient.edamam_client_api.filter.enums
+namespace EdamamApiClient.edamam_client_api.filter.types
 {
     public static class HealthTypes
     {

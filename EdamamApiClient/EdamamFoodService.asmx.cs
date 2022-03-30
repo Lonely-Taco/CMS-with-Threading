@@ -8,9 +8,10 @@ using System.Net;
 using System.Web;
 using System.Web.Services;
 using System.Json;
-using CMS.main.com.nhlstenden.foodle;
 using EdamamApiClient.edamam_client_api.data_objects;
 using System.Web.Script.Serialization;
+using EdamamApiClient.edamam_client_api.filter.types;
+using EdamamApiClient.edamam_client_api.filter;
 
 namespace EdamamApiClient
 {
@@ -26,11 +27,24 @@ namespace EdamamApiClient
     {
 
         [WebMethod]
-        public List<EdamamResponseObject.Food> GetFood(string foodName)
+        public List<EdamamResponseObject.Food> GetFood(SearchFilter searchFilter)
+        {
+            string apiUrl = CreateUrl(searchFilter);
+            return GetResponse(apiUrl);
+
+        }
+
+        [WebMethod]
+        public List<EdamamResponseObject.Food> GetFoodOnName(string foodName)
+        {
+            string apiUrl = CreateUrlOnName(foodName);
+            return GetResponse(apiUrl);
+        }
+
+        public List<EdamamResponseObject.Food> GetResponse(string apiUrl)
         {
             using (WebClient clinet = new WebClient())
             {
-                string apiUrl = CreateUrl(foodName);
                 WebRequest request = (HttpWebRequest)WebRequest.Create(apiUrl);
                 WebResponse response = (HttpWebResponse)request.GetResponse();
 
@@ -44,7 +58,12 @@ namespace EdamamApiClient
 
         }
 
-        private string CreateUrl(string foodName)
+        private string CreateUrl(SearchFilter searchFilter)
+        {
+            return CreateUrlOnName(searchFilter.TextFilter) + getFilterUrlString(searchFilter);
+        }
+
+        private string CreateUrlOnName(string foodName)
         {
             string fileName = "edamam_client_api/resources/secrets.json";
             string path = Path.Combine(Server.MapPath("~/"), fileName);
@@ -56,19 +75,21 @@ namespace EdamamApiClient
                 string appId = jsonArray["app_id"];
                 string appKey = jsonArray["app_key"];
                 string baseUrl = String.Format("https://api.edamam.com/api/food-database/v2/parser");
-                string appIdString = String.Format("?app_id={0}&app_key={1}", appId, appKey);
-                string ingredientString = String.Format("&ingr={0}&nutrition-type=cooking", foodName);
-                return baseUrl + appIdString + ingredientString;
+                string appSecurityString = String.Format("?app_id={0}&app_key={1}", appId, appKey);
+                string nameString = String.Format("&ingr={0}&nutrition-type=cooking", foodName);
+                return baseUrl + appSecurityString + nameString;
             }
-
-            throw new Exception("Could not find file secrets.json");
         }
 
-        //private string getFilterUrlString(SearchFilter searchFilter)
-        //{
-        //    for()
-        //    searchFilter.HealthFilters
-        //}
+        private string getFilterUrlString(SearchFilter searchFilter)
+        {
+            string filterUrlString = "";
+            foreach (FilterObject filter in searchFilter.getFilters())
+            {
+                String.Format("&{0}={1}", filter.FilterType, filter.FilterName);
+            }
+            return filterUrlString;
+        }
 
     }
 }

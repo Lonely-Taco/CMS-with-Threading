@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="CMS.main.com.nhlstenden.foodle.pages.windows.WorkoutWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CMS.main.com.nhlstenden.foodle.pages.windows"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="605" Height="604">
+
+    <Grid>
+        <Button Content="Button" Margin="0,499,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Height="49" Width="95"/>
+        <DatePicker Margin="50,140,0,0" VerticalAlignment="Top"/>
+        <DatePicker Margin="50,225,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="50,116,0,0" TextWrapping="Wrap" Text="Start date" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="50,201,0,0" TextWrapping="Wrap" Text="End Date" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="50,54,0,0" FontSize="20" TextWrapping="Wrap" PlaceholderText="Workout name" VerticalAlignment="Top" TextAlignment="Left" Width="213"/>
+        <TextBlock HorizontalAlignment="Left" Margin="50,372,0,0" TextWrapping="Wrap" Text="Expected calories burned:" VerticalAlignment="Top"/>
+        <Slider HorizontalAlignment="Left" Margin="50,404,0,0" VerticalAlignment="Top" Width="213" Maximum="1500" Background="#6600F9FF" RequestedTheme="Default" StepFrequency="8" UseLayoutRounding="True"/>
+        <TextBox HorizontalAlignment="Left" Margin="50,281,0,0" TextWrapping="Wrap" PlaceholderText="Workout description" VerticalAlignment="Top" Height="71" Width="296"/>
+
+    </Grid>
+</Page>

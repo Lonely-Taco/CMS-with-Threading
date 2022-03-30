@@ -157,6 +157,12 @@
     <Compile Include="main\com\nhlstenden\foodle\pages\windows\FoodInfoWindow.xaml.cs">
       <DependentUpon>FoodInfoWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="main\com\nhlstenden\foodle\pages\windows\WorkoutSessionWindow.xaml.cs">
+      <DependentUpon>WorkoutSessionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="main\com\nhlstenden\foodle\pages\windows\WorkoutWindow.xaml.cs">
+      <DependentUpon>WorkoutWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="main\com\nhlstenden\foodle\SearchFilter.cs" />
     <Compile Include="main\com\nhlstenden\foodle\user\User.cs" />
     <Compile Include="main\com\nhlstenden\foodle\user\UserSettings.cs" />
@@ -220,6 +226,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="main\com\nhlstenden\foodle\pages\windows\FoodInfoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="main\com\nhlstenden\foodle\pages\windows\WorkoutSessionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="main\com\nhlstenden\foodle\pages\windows\WorkoutWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

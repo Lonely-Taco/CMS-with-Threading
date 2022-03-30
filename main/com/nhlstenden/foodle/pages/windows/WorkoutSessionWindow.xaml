@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="CMS.main.com.nhlstenden.foodle.pages.windows.WorkoutSessionWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CMS.main.com.nhlstenden.foodle.pages.windows"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="400"
+    d:DesignWidth="400"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <DatePicker Margin="750,215,0,0" VerticalAlignment="Top"/>
+        <DatePicker Margin="750,300,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="250,191,0,0" TextWrapping="Wrap" Text="Start date" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="250,276,0,0" TextWrapping="Wrap" Text="End Date" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="250,362,0,0" TextWrapping="Wrap" Text="Calories burned:" VerticalAlignment="Top"/>
+        <Slider HorizontalAlignment="Left" Margin="750,421,0,0" VerticalAlignment="Top" Width="213" Maximum="1500" Background="#6600F9FF" RequestedTheme="Default" StepFrequency="8" UseLayoutRounding="True"/>
+
+    </Grid>
+</Page>

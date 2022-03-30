@@ -86,8 +86,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="edamam_client_api\resources\secrets.json" />
     <Content Include="edamam_client_api\resources\secrets.json.example" />
+    <None Include="edamam_client_api\resources\secrets.json" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

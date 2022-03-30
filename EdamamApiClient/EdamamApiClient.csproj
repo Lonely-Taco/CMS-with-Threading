@@ -83,6 +83,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="edamam_client_api\EdamamJsonParser.cs" />
+    <Compile Include="edamam_client_api\filter\enums\CuisineType.cs" />
+    <Compile Include="edamam_client_api\filter\enums\DietType.cs" />
+    <Compile Include="edamam_client_api\filter\enums\DishType.cs" />
+    <Compile Include="edamam_client_api\filter\enums\HealthTypes.cs" />
+    <Compile Include="edamam_client_api\filter\enums\MealType.cs" />
+    <Compile Include="edamam_client_api\filter\SearchFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

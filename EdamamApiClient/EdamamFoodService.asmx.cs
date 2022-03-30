@@ -9,6 +9,7 @@ using System.Net;
 using System.Web;
 using System.Web.Services;
 using System.Json;
+using CMS.main.com.nhlstenden.foodle;
 
 namespace EdamamApiClient
 {
@@ -24,11 +25,11 @@ namespace EdamamApiClient
     {
 
         [WebMethod]
-        public FoodDataObject getFood(string foodName)
+        public FoodDataObject GetFood(string foodName)
         {
             using (WebClient clinet = new WebClient())
             {
-                string apiUrl = createUrl(foodName);
+                string apiUrl = CreateUrl(foodName);
                 WebRequest request = (HttpWebRequest)WebRequest.Create(apiUrl);
                 WebResponse response = (HttpWebResponse)request.GetResponse();
 
@@ -42,7 +43,7 @@ namespace EdamamApiClient
 
         }
 
-        private string createUrl(string foodName)
+        private string CreateUrl(string foodName)
         {
             string fileName = "edamam_client_api/resources/secrets.json";
             string path = Path.Combine(Server.MapPath("~/"), fileName);
@@ -60,6 +61,12 @@ namespace EdamamApiClient
             }
 
             throw new Exception("Could not find file secrets.json");
+        }
+
+        private string getFilterUrlString(SearchFilter searchFilter)
+        {
+            for()
+            searchFilter.HealthFilters
         }
     }
 }

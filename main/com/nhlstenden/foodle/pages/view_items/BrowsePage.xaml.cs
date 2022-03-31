@@ -73,6 +73,7 @@ namespace CMS.main.com.nhlstenden.foodle.pages
                 });
         }
 
+        //Make a text box only accept numbers
         private void NumberBox_OnTextChanging(TextBox sender, TextBoxTextChangingEventArgs args)
         {
             //remove any non-digits

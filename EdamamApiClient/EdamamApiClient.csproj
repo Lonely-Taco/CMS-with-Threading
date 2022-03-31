@@ -83,12 +83,7 @@
       <DependentUpon>EdamamFoodService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="edamam_client_api\filter\types\CuisineType.cs" />
-    <Compile Include="edamam_client_api\filter\types\DietType.cs" />
-    <Compile Include="edamam_client_api\filter\types\DishType.cs" />
     <Compile Include="edamam_client_api\filter\FilterObject.cs" />
-    <Compile Include="edamam_client_api\filter\types\HealthTypes.cs" />
-    <Compile Include="edamam_client_api\filter\types\MealType.cs" />
     <Compile Include="edamam_client_api\filter\SearchFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

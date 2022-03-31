@@ -21,6 +21,5 @@
         <controls:MultiSelectComboBox x:Name="HealthLabelMultiSelectComboBox"     
             HorizontalAlignment="Left" Margin="116,113,0,0" VerticalAlignment="Top" Width="163"
             PopupHeight="200" PopupWidth="200" FontSize="14" MinHeight="26" Height="26"/>
-
     </Grid>
 </UserControl>

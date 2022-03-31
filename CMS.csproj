@@ -271,7 +271,6 @@
     <WCFMetadataStorage Include="Connected Services\EdamamApiClient\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="main\com\nhlstenden\foodle\controls\" />
     <Folder Include="Service References\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

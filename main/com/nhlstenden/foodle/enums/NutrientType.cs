@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace CMS.main.com.nhlstenden.foodle
 {
-    internal enum NutrientType
+    public enum NutrientType
     {
         ENRC_KAL,
         PRONCT,
         FAT,
         CHOCDF,
-        FIBIG
+        FIBTG
     }
 }

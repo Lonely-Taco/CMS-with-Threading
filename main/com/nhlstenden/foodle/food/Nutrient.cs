@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CMS.main.com.nhlstenden.foodle
 {
-    internal class Nutrient
+    public class Nutrient
     {
         float nutrientAmount;
         NutrientType nutrientType;

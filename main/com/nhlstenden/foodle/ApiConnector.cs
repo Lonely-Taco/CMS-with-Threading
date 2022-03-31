@@ -30,9 +30,8 @@ namespace CMS.main.com.nhlstenden.foodle
 
         public static string CreateUrlOnName(string foodName)
         {
-
-            string appId = "59faa57b";
-            string appKey = "e36918a1dec4a492e9a75de375a6f2b8";
+            string appId = "";
+            string appKey = "";
             string baseUrl = String.Format("https://api.edamam.com/api/food-database/v2/parser");
             string appSecurityString = String.Format("?app_id={0}&app_key={1}", appId, appKey);
             string nameString = String.Format("&ingr={0}&nutrition-type=cooking", foodName);

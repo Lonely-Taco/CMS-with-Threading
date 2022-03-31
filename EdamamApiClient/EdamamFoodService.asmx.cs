@@ -23,7 +23,7 @@ namespace EdamamApiClient
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
     // [System.Web.Script.Services.ScriptService]
-    public class EdamamFoodService : System.Web.Services.WebService
+    public class EdamamFoodService : WebService
     {
 
         [WebMethod]
@@ -55,7 +55,6 @@ namespace EdamamApiClient
                 EdamamResponseObject responseObject = new JavaScriptSerializer().Deserialize<EdamamResponseObject>(responseString);
                 return responseObject.getFood();
             }
-
         }
 
         private string CreateUrl(SearchFilter searchFilter)

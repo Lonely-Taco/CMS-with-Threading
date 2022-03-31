@@ -124,6 +124,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="main\controls\MultiSelectComboBox.xaml.cs">
+      <DependentUpon>MultiSelectComboBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="main\com\nhlstenden\foodle\filter\types\CuisineType.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\filter\types\DietType.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\filter\types\DishType.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\filter\types\HealthTypes.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\filter\types\MealType.cs" />
     <Compile Include="main\com\nhlstenden\foodle\pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -201,6 +209,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="main\controls\MultiSelectComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="main\com\nhlstenden\foodle\pages\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -259,6 +271,7 @@
     <WCFMetadataStorage Include="Connected Services\EdamamApiClient\" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="main\com\nhlstenden\foodle\controls\" />
     <Folder Include="Service References\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

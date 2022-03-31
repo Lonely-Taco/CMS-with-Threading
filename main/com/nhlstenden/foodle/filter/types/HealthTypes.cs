@@ -41,7 +41,43 @@ namespace EdamamApiClient.edamam_client_api.filter.types
         public static readonly string VEGETARIAN="vegetarian";
         public static readonly string WHEAT_FREE="wheat-free";
 
-
-
+        public static List<string> getHealthLabels()
+        {
+            List<string> healthLabels = new List<string>();
+            healthLabels.Add(ALCOHOL_FREE);
+            healthLabels.Add(IMMUNO_SUPPORTIVE);
+            healthLabels.Add(CELERY_FREE);
+            healthLabels.Add(CRUSTACEAN_FREE);
+            healthLabels.Add(DAIRY_FREE);
+            healthLabels.Add(DASH);
+            healthLabels.Add(EGG_FREE);
+            healthLabels.Add(FISH_FREE);
+            healthLabels.Add(FODMAP_FREE);
+            healthLabels.Add(GLUTEN_FREE);
+            healthLabels.Add(KETO_FRIENDLY);
+            healthLabels.Add(KIDNEY_FRIENDLY);
+            healthLabels.Add(KOSHER);
+            healthLabels.Add(LOW_POTASSIUM);
+            healthLabels.Add(LUPINE_FREE);
+            healthLabels.Add(MEDITERRANEAN);
+            healthLabels.Add(MUSTARD_FREE);
+            healthLabels.Add(LOW_FAT_ABS);
+            healthLabels.Add(NO_OIL_ADDED);
+            healthLabels.Add(LOW_SUGAR);
+            healthLabels.Add(PALEO);
+            healthLabels.Add(PEANUT_FREE);
+            healthLabels.Add(PECATARIAN);
+            healthLabels.Add(PORK_FREE);
+            healthLabels.Add(RED_MEAT_FREE);
+            healthLabels.Add(SESAME_FREE);
+            healthLabels.Add(SHELLFISH_FREE);
+            healthLabels.Add(SOY_FREE);
+            healthLabels.Add(SUGAR_CONSCIOUS);
+            healthLabels.Add(TREE_NUT_FREE);
+            healthLabels.Add(VEGAN);
+            healthLabels.Add(VEGETARIAN);
+            healthLabels.Add(WHEAT_FREE);
+            return healthLabels;
+        }
     }
 }

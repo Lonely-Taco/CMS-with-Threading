@@ -103,25 +103,29 @@ namespace CMS.main.com.nhlstenden.foodle.pages
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            DataTable table = GetFoodDataTable(GetFoodResult());
-            FoodGrid.Columns.Clear();
-            FoodGrid.AutoGenerateColumns = false;
-            for (int i = 0; i < table.Columns.Count; i++)
-            {
-                FoodGrid.Columns.Add(new DataGridTextColumn()
-                {
-                    Header = table.Columns[i].ColumnName,
-                    Binding = new Binding { Path = new PropertyPath("[" + i.ToString() + "]") }
-                });
-            }
+            //DataTable table = GetFoodDataTable(GetFoodResult());
+            //FoodGrid.Columns.Clear();
+            //FoodGrid.AutoGenerateColumns = false;
+            //for (int i = 0; i < table.Columns.Count; i++)
+            //{
+            //    FoodGrid.Columns.Add(new DataGridTextColumn()
+            //    {
+            //        Header = table.Columns[i].ColumnName,
+            //        Binding = new Binding { Path = new PropertyPath("[" + i.ToString() + "]") }
+            //    });
 
-            var collection = new ObservableCollection<object>();
-            foreach (DataRow row in table.Rows)
-            {
-                collection.Add(row.ItemArray);
-            }
+            //}
 
-            FoodGrid.ItemsSource = collection;
+            //var collection = new Collection<object>();
+            //foreach (DataRow row in table.Rows)
+            //{
+            //    collection.Add(row.ItemArray);
+
+            //}
+
+            //FoodGrid.ItemsSource = collection;
+
+            FoodGrid.ItemsSource = GetFoodResult();
         }
 
         private List<Food> GetFoodResult()
@@ -144,11 +148,17 @@ namespace CMS.main.com.nhlstenden.foodle.pages
             foodDataTable.Columns.Add("Category", typeof(string));
             foodDataTable.Columns.Add("Brand", typeof(string));
 
-            foreach(Food food in foodList){
+            foreach (Food food in foodList){
+
                 foodDataTable.Rows.Add(food.FoodId, food.FoodName, food.Category, food.Brand);
             }
 
             return foodDataTable;
+        }
+
+        private void FoodDataTableInfoButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
         }
     }
 }

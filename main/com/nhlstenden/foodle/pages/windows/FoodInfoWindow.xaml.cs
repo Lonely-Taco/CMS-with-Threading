@@ -46,7 +46,7 @@ namespace CMS.main.com.nhlstenden.foodle.pages.windows
             List<Nutrient> nutrients = new List<Nutrient>();
             nutrients.Add(new Nutrient(31.1f, NutrientType.ENRC_KAL));
             nutrients.Add(new Nutrient(23.7f, NutrientType.CHOCDF));
-            nutrients.Add(new Nutrient(11.3f, NutrientType.FIBIG));
+            nutrients.Add(new Nutrient(11.3f, NutrientType.FIBTG));
             NutrientPieSeries.ItemsSource = nutrients;
         }
     }

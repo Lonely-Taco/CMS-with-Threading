@@ -1,9 +1,12 @@
 ﻿using CMS.main.com.nhlstenden.foodle.filter.types;
 using CMS.main.com.nhlstenden.foodle.pages.windows;
 using EdamamApiClient.edamam_client_api.filter.types;
+using Microsoft.Toolkit.Uwp.UI.Controls;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -87,8 +90,8 @@ namespace CMS.main.com.nhlstenden.foodle.pages
             }
             else
             {
-                float input = -1;
-                float.TryParse(newText, out input);
+                int input = -1;
+                int.TryParse(newText, out input);
                 //set the maximum number that can be input to 9999
                 input = Math.Min(input, 9999);
                 //change the text in the textbox
@@ -96,6 +99,56 @@ namespace CMS.main.com.nhlstenden.foodle.pages
                 //set the cursor to the end
                 sender.SelectionStart = sender.Text.Length;
             }
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            DataTable table = GetFoodDataTable(GetFoodResult());
+            FoodGrid.Columns.Clear();
+            FoodGrid.AutoGenerateColumns = false;
+            for (int i = 0; i < table.Columns.Count; i++)
+            {
+                FoodGrid.Columns.Add(new DataGridTextColumn()
+                {
+                    Header = table.Columns[i].ColumnName,
+                    Binding = new Binding { Path = new PropertyPath("[" + i.ToString() + "]") }
+                });
+            }
+
+            var collection = new ObservableCollection<object>();
+            foreach (DataRow row in table.Rows)
+            {
+                collection.Add(row.ItemArray);
+            }
+
+            FoodGrid.ItemsSource = collection;
+        }
+
+        private List<Food> GetFoodResult()
+        {
+            string foodName = this.FoodNameInput.Text;
+
+            int.TryParse(this.MinCalInput.Text, out int minCal);
+            int.TryParse(this.MaxCalInput.Text, out int maxCal);
+            List<string> healthLabels = HealthLabelMultiSelectComboBox.SelectedItems.Cast<string>().ToList();
+            List<string> categoryTypes = CategoryTypeMultiSelectComboBox.SelectedItems.Cast<string>().ToList();
+            SearchFilter searchFilter = new SearchFilter(foodName, minCal, maxCal, healthLabels, categoryTypes);
+            return ApiConnector.GetFoodListFromApi(searchFilter);
+        }
+
+        private DataTable GetFoodDataTable(List<Food> foodList)
+        {
+            DataTable foodDataTable = new DataTable();
+            foodDataTable.Columns.Add("Food ID", typeof(string));
+            foodDataTable.Columns.Add("Food name", typeof(string));
+            foodDataTable.Columns.Add("Category", typeof(string));
+            foodDataTable.Columns.Add("Brand", typeof(string));
+
+            foreach(Food food in foodList){
+                foodDataTable.Rows.Add(food.FoodId, food.FoodName, food.Category, food.Brand);
+            }
+
+            return foodDataTable;
         }
     }
 }

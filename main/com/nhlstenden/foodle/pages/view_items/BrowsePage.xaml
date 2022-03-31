@@ -5,23 +5,25 @@
     xmlns:local="using:CMS.main.com.nhlstenden.foodle.pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:controls="using:MonoTorrent.GUI.Controls"
-    mc:Ignorable="d" Height="489" Width="589">
+    xmlns:mt="using:MonoTorrent.GUI.Controls" xmlns:ui_controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d" Height="489" Width="770">
 
     <Grid>
         <Button x:Name="FoodInfo" Content="Open food info window" Margin="0,440,0,0" VerticalAlignment="Top" Click="FoodInfo_Click" Height="32" Width="149" FontSize="11" HorizontalAlignment="Center"/>
-        <TextBox HorizontalAlignment="Left" Margin="134,23,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="163"/>
+        <TextBox x:Name="FoodNameInput" HorizontalAlignment="Left" Margin="134,23,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="163"/>
         <TextBox HorizontalAlignment="Left" Margin="10,23,0,0" TextWrapping="Wrap" Text="Food name:" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="133,68,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" PlaceholderText="Min" TextChanging="NumberBox_OnTextChanging"/>
+        <TextBox x:Name="MinCalInput" HorizontalAlignment="Left" Margin="133,68,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" PlaceholderText="Min" TextChanging="NumberBox_OnTextChanging"/>
         <TextBox HorizontalAlignment="Left" Margin="10,68,0,0" TextWrapping="Wrap" Text="Calories:" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="226,68,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" PlaceholderText="Max" TextChanging="NumberBox_OnTextChanging"/>
-        <controls:MultiSelectComboBox x:Name="HealthLabelMultiSelectComboBox"     
+        <TextBox x:Name="MaxCalInput" HorizontalAlignment="Left" Margin="226,68,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" PlaceholderText="Max" TextChanging="NumberBox_OnTextChanging"/>
+        <mt:MultiSelectComboBox x:Name="HealthLabelMultiSelectComboBox"     
             HorizontalAlignment="Left" Margin="134,113,0,0" VerticalAlignment="Top" Width="163"
             PopupHeight="200" PopupWidth="200" FontSize="14" MinHeight="26" Height="26"/>
         <TextBox HorizontalAlignment="Left" Margin="10,110,0,0" TextWrapping="Wrap" Text="Health labels:" VerticalAlignment="Top"/>
-        <controls:MultiSelectComboBox x:Name="CategoryTypeMultiSelectComboBox"     
+        <mt:MultiSelectComboBox x:Name="CategoryTypeMultiSelectComboBox"     
             HorizontalAlignment="Left" Margin="134,153,0,0" VerticalAlignment="Top" Width="163"
             PopupHeight="200" PopupWidth="200" FontSize="14" MinHeight="26" Height="26"/>
         <TextBox HorizontalAlignment="Left" Margin="10,150,0,0" TextWrapping="Wrap" Text="Category:" VerticalAlignment="Top"/>
+        <ui_controls:DataGrid x:Name="FoodGrid" Margin="10,220,10,72" Background="#FF676565"/>
+        <Button x:Name="SearchButton" Content="Search" Margin="350,150,0,0" VerticalAlignment="Top" Width="104" Click="SearchButton_Click"/>
     </Grid>
 </UserControl>

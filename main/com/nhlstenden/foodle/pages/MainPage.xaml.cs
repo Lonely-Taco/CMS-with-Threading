@@ -1,8 +1,10 @@
-﻿using CMS.main.com.nhlstenden.foodle.pages;
+﻿using CMS.main.com.nhlstenden.foodle;
+using CMS.main.com.nhlstenden.foodle.pages;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
@@ -80,7 +82,7 @@ namespace CMS
         {
             try
             {
-                if(args.SelectedItem is NavigationViewItem item)
+                if (args.SelectedItem is NavigationViewItem item)
                 {
                     switch (item.Content)
                     {
@@ -97,7 +99,7 @@ namespace CMS
                             break;
                     }
                 }
-            }catch(Exception ex)
+            } catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -122,6 +124,23 @@ namespace CMS
             });
 
             return await ApplicationViewSwitcher.TryShowAsStandaloneAsync(id);
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            ApiConnector.InitializeClient();
+            using (HttpResponseMessage response = await ApiConnector.ApiClient.GetAsync(ApiConnector.CreateUrlOnName("ham")))
+            {
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var rtest = await response.Content.ReadAsStringAsync();
+
+                }
+            }
+
+
         }
     }
 }

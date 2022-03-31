@@ -5,7 +5,7 @@ using System.Web;
 
 namespace EdamamApiClient.edamam_client_api.filter.types
 {
-    public static class HealthTypes
+    public static class HealthLabel
     {
         public static readonly string ALCOHOL_FREE="alcohol-free";
         public static readonly string IMMUNO_SUPPORTIVE="immuno-supportive";
@@ -43,41 +43,42 @@ namespace EdamamApiClient.edamam_client_api.filter.types
 
         public static List<string> getHealthLabels()
         {
-            List<string> healthLabels = new List<string>();
-            healthLabels.Add(ALCOHOL_FREE);
-            healthLabels.Add(IMMUNO_SUPPORTIVE);
-            healthLabels.Add(CELERY_FREE);
-            healthLabels.Add(CRUSTACEAN_FREE);
-            healthLabels.Add(DAIRY_FREE);
-            healthLabels.Add(DASH);
-            healthLabels.Add(EGG_FREE);
-            healthLabels.Add(FISH_FREE);
-            healthLabels.Add(FODMAP_FREE);
-            healthLabels.Add(GLUTEN_FREE);
-            healthLabels.Add(KETO_FRIENDLY);
-            healthLabels.Add(KIDNEY_FRIENDLY);
-            healthLabels.Add(KOSHER);
-            healthLabels.Add(LOW_POTASSIUM);
-            healthLabels.Add(LUPINE_FREE);
-            healthLabels.Add(MEDITERRANEAN);
-            healthLabels.Add(MUSTARD_FREE);
-            healthLabels.Add(LOW_FAT_ABS);
-            healthLabels.Add(NO_OIL_ADDED);
-            healthLabels.Add(LOW_SUGAR);
-            healthLabels.Add(PALEO);
-            healthLabels.Add(PEANUT_FREE);
-            healthLabels.Add(PECATARIAN);
-            healthLabels.Add(PORK_FREE);
-            healthLabels.Add(RED_MEAT_FREE);
-            healthLabels.Add(SESAME_FREE);
-            healthLabels.Add(SHELLFISH_FREE);
-            healthLabels.Add(SOY_FREE);
-            healthLabels.Add(SUGAR_CONSCIOUS);
-            healthLabels.Add(TREE_NUT_FREE);
-            healthLabels.Add(VEGAN);
-            healthLabels.Add(VEGETARIAN);
-            healthLabels.Add(WHEAT_FREE);
-            return healthLabels;
+            return new List<string>
+            {
+                ALCOHOL_FREE,
+                IMMUNO_SUPPORTIVE,
+                CELERY_FREE,
+                CRUSTACEAN_FREE,
+                DAIRY_FREE,
+                DASH,
+                EGG_FREE,
+                FISH_FREE,
+                FODMAP_FREE,
+                GLUTEN_FREE,
+                KETO_FRIENDLY,
+                KIDNEY_FRIENDLY,
+                KOSHER,
+                LOW_POTASSIUM,
+                LUPINE_FREE,
+                MEDITERRANEAN,
+                MUSTARD_FREE,
+                LOW_FAT_ABS,
+                NO_OIL_ADDED,
+                LOW_SUGAR,
+                PALEO,
+                PEANUT_FREE,
+                PECATARIAN,
+                PORK_FREE,
+                RED_MEAT_FREE,
+                SESAME_FREE,
+                SHELLFISH_FREE,
+                SOY_FREE,
+                SUGAR_CONSCIOUS,
+                TREE_NUT_FREE,
+                VEGAN,
+                VEGETARIAN,
+                WHEAT_FREE
+            };
         }
     }
 }

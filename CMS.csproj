@@ -124,14 +124,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="main\com\nhlstenden\foodle\filter\types\CategoryType.cs" />
     <Compile Include="main\controls\MultiSelectComboBox.xaml.cs">
       <DependentUpon>MultiSelectComboBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="main\com\nhlstenden\foodle\filter\types\CuisineType.cs" />
-    <Compile Include="main\com\nhlstenden\foodle\filter\types\DietType.cs" />
-    <Compile Include="main\com\nhlstenden\foodle\filter\types\DishType.cs" />
-    <Compile Include="main\com\nhlstenden\foodle\filter\types\HealthTypes.cs" />
-    <Compile Include="main\com\nhlstenden\foodle\filter\types\MealType.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\filter\types\HealthLabel.cs" />
     <Compile Include="main\com\nhlstenden\foodle\pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

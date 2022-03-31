@@ -1,4 +1,5 @@
-﻿using CMS.main.com.nhlstenden.foodle.pages.windows;
+﻿using CMS.main.com.nhlstenden.foodle.filter.types;
+using CMS.main.com.nhlstenden.foodle.pages.windows;
 using EdamamApiClient.edamam_client_api.filter.types;
 using Newtonsoft.Json;
 using System;
@@ -29,7 +30,8 @@ namespace CMS.main.com.nhlstenden.foodle.pages
         public BrowsePage()
         {
             this.InitializeComponent();
-            HealthLabelMultiSelectComboBox.ItemsSource = HealthTypes.getHealthLabels();
+            HealthLabelMultiSelectComboBox.ItemsSource = HealthLabel.getHealthLabels();
+            CategoryTypeMultiSelectComboBox.ItemsSource = CategoryType.getCategoryTypes();
         }
 
         private void OpenFoodInfoWindow()

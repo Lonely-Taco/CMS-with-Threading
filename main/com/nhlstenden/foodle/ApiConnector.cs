@@ -1,12 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace CMS.main.com.nhlstenden.foodle
@@ -28,14 +25,27 @@ namespace CMS.main.com.nhlstenden.foodle
             ApiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public static string CreateUrlOnName(string foodName)
+        public static string CreateUrlOn()
         {
-            string appId = "";
-            string appKey = "";
-            string baseUrl = String.Format("https://api.edamam.com/api/food-database/v2/parser");
-            string appSecurityString = String.Format("?app_id={0}&app_key={1}", appId, appKey);
-            string nameString = String.Format("&ingr={0}&nutrition-type=cooking", foodName);
-            return baseUrl + appSecurityString + nameString;
+            //string filePath = "main/com/nhlstenden/foodle/resources/secrets.json";
+
+            //string path = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.Parent.FullName, filePath);
+
+            //using (StreamReader r = new StreamReader(path))
+            //{
+
+                //string json = r.ReadToEnd();
+                //JObject js = JObject.Parse(json);
+        
+                //string appId = (string) js["app_secret"]["app_"]; 
+                //string appKey = (string)js["app_secret"]["app_key"];
+                string appId = "59faa57b";
+                string appKey = "1bf15500cc5d97d8df1c30962a0cc5e9";
+                string baseUrl = String.Format("https://api.edamam.com/api/food-database/v2/parser");
+                string appSecurityString = String.Format("?app_id={0}&app_key={1}", appId, appKey);
+                string nameString = String.Format("&ingr={0}&nutrition-type=cooking", "ham");
+                return baseUrl + appSecurityString + nameString;
+            //}
         }
 
         public static List<Food> GetFoodListFromApi(SearchFilter searchFilter)

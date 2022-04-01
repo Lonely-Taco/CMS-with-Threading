@@ -8,6 +8,12 @@ namespace CMS.main.com.nhlstenden.foodle
 {
     public class Nutrient
     {
+        public int ENERC_KCAL { get; set; }
+        public double PROCNT { get; set; }
+        public double FAT { get; set; }
+        public double CHOCDF { get; set; }
+        public int FIBTG { get; set; }
+
         float nutrientAmount;
         NutrientType nutrientType;
 

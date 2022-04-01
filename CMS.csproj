@@ -126,6 +126,8 @@
     </Compile>
     <Compile Include="main\com\nhlstenden\foodle\filter\FilterObject.cs" />
     <Compile Include="main\com\nhlstenden\foodle\filter\types\CategoryType.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\Measure.cs" />
+    <Compile Include="main\com\nhlstenden\foodle\Root.cs" />
     <Compile Include="main\controls\MultiSelectComboBox.xaml.cs">
       <DependentUpon>MultiSelectComboBox.xaml</DependentUpon>
     </Compile>

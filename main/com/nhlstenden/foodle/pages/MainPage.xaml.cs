@@ -1,5 +1,7 @@
 ﻿using CMS.main.com.nhlstenden.foodle;
 using CMS.main.com.nhlstenden.foodle.pages;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -130,17 +132,24 @@ namespace CMS
         {
 
             ApiConnector.InitializeClient();
-            using (HttpResponseMessage response = await ApiConnector.ApiClient.GetAsync(ApiConnector.CreateUrlOnName("ham")))
+            using (HttpResponseMessage response = await ApiConnector.ApiClient.GetAsync(ApiConnector.CreateUrlOn()))
             {
 
                 if (response.IsSuccessStatusCode)
                 {
-                    var rtest = await response.Content.ReadAsStringAsync();
+                    string json= await response.Content.ReadAsStringAsync();
+                    
+                    //JObject js = JObject.Parse(json);
 
+                    Food myDeserializedClass = JsonConvert.DeserializeObject<Food>(json);
+
+                    string food = myDeserializedClass.foodId;
+                    //foreach (var item in js)
+                    //{
+                    //    Food rootobject = JsonConvert.DeserializeObject<Food>((string) item.Value);
+                    //}
                 }
             }
-
-
         }
     }
 }

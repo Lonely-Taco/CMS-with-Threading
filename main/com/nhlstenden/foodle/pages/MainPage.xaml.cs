@@ -72,6 +72,8 @@ namespace CMS
                 }
             };
 
+
+
             this.mainNavigationView.MenuItems.Add(homeItem);
             this.mainNavigationView.MenuItems.Add(browseItem);
             this.mainNavigationView.MenuItems.Add(workoutItem);
@@ -96,6 +98,9 @@ namespace CMS
                             break;
                         case "Workout":
                             selectedItemFrame.Content = new WorkoutPage();
+                            break;
+                        case "Settings":
+                            selectedItemFrame.Content = new UserSettingsPage();
                             break;
                         default:
                             break;

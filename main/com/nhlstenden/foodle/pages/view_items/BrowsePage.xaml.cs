@@ -103,7 +103,8 @@ namespace CMS.main.com.nhlstenden.foodle.pages
 
         private async void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-             DataTable table = GetFoodDataTable( await GetFoodResult());
+            
+            DataTable table = GetFoodDataTable( await GetFoodResult());
             FoodGrid.Columns.Clear();
             FoodGrid.AutoGenerateColumns = false;
             for (int i = 0; i < table.Columns.Count; i++)

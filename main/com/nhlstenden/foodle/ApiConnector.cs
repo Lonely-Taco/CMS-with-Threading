@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using CMS.main.com.nhlstenden.foodle.filter;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Json;
 
 namespace CMS.main.com.nhlstenden.foodle
 {
@@ -42,7 +43,7 @@ namespace CMS.main.com.nhlstenden.foodle
 
             //string appId = (string) js["app_secret"]["app_"]; 
             //string appKey = (string)js["app_secret"]["app_key"];
-            string appId = '';
+            string appId = "59faa57b";
             string appKey = '';
                 string baseUrl = String.Format("https://api.edamam.com/api/food-database/v2/parser");
                 string appSecurityString = String.Format("?app_id={0}&app_key={1}", appId, appKey);
@@ -111,10 +112,10 @@ namespace CMS.main.com.nhlstenden.foodle
             return CreateUrlOnName(searchFilter.TextFilter) + getFilterUrlString(searchFilter);
         }
 
-        private static string CreateUrlOnName(string foodName)
+        public static string CreateUrlOnName(string foodName)
         {
             string fileName = "edamam_client_api/resources/secrets.json";
-            string path = Path.Combine(Server.MapPath("~/"), fileName);
+            string path = Path.Combine(S.MapPath("~/"), fileName);
 
             using (StreamReader r = new StreamReader(path))
             {

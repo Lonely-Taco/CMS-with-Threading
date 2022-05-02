@@ -62,21 +62,21 @@ namespace CMS.main.com.nhlstenden.foodle
  
         public static string CreateUrlOnName(string foodName)
         {
-            string fileName = "main\\com\\nhlstenden\\foodle\\resources\\secrets.json";
-            string path = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.Parent.FullName, fileName);
+            //string fileName = "main\\com\\nhlstenden\\foodle\\resources\\secrets.json";
+            //string path = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.Parent.FullName, fileName);
 
-            using (StreamReader r = new StreamReader(path))
-            {
-                string json = r.ReadToEnd();
+            //using (StreamReader r = new StreamReader(path))
+            //{
+            //    string json = r.ReadToEnd();
 
-                JsonValue jsonArray = JsonValue.Parse(json);
-                string appId = jsonArray["app_id"];
-                string appKey = jsonArray["app_key"];
-                string baseUrl = String.Format("https://api.edamam.com/api/food-database/v2/parser");
-                string appSecurityString = String.Format("?app_id={0}&app_key={1}", appId, appKey);
-                string nameString = String.Format("&ingr={0}&nutrition-type=cooking", foodName);
-                return baseUrl + appSecurityString + nameString;
-            }
+            //    JsonValue jsonArray = JsonValue.Parse(json);
+            string appId = "";
+            string appKey = "";
+            string baseUrl = String.Format("https://api.edamam.com/api/food-database/v2/parser");
+            string appSecurityString = String.Format("?app_id={0}&app_key={1}", appId, appKey);
+            string nameString = String.Format("&ingr={0}&nutrition-type=cooking", foodName);
+            return baseUrl + appSecurityString + nameString;
+            //}
         }
 
         private static string getFilterUrlString(SearchFilter searchFilter)

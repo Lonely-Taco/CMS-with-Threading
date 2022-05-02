@@ -29,15 +29,17 @@ namespace CMS.main.com.nhlstenden.foodle.pages.windows
         {
             this.InitializeComponent();
             this.FoodNameLabel.Text = "No food loaded";
-            NutrientPieSeries.ItemsSource = food.Nutrients;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             food = JsonConvert.DeserializeObject<Food>((string)e.Parameter);
-
-            this.FoodNameLabel.Text = food.FoodName;
-            this.FoodIdLabel.Text = food.FoodId;
+            if (food != null)
+            {
+                this.FoodNameLabel.Text = food.FoodName;
+                this.FoodIdLabel.Text = food.FoodId;
+                this.NutrientPieSeries.ItemsSource = food.Nutrients;
+            }
             base.OnNavigatedTo(e);
         }
     }

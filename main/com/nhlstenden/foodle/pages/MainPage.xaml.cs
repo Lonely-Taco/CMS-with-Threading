@@ -100,7 +100,7 @@ namespace CMS
                             selectedItemFrame.Content = new WorkoutPage();
                             break;
                         case "Settings":
-                            selectedItemFrame.Content = new UserSettingsPage();
+                            selectedItemFrame.Content = new LoginPage();
                             break;
                         default:
                             break;

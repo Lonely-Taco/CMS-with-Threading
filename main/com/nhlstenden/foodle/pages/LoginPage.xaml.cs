@@ -31,7 +31,7 @@ namespace CMS.main.com.nhlstenden.foodle.pages
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             String connetionString =
-                "Data Source=RAMON\\SQLEXPRESS;Initial Catalog=foodle;Integrated Security=True";
+               @"Data Source=RUKKUS;Initial Catalog=Foodle;Persist Security Info=True;User ID='SQL Login';Password='SQLLogin';";
             SqlConnection cnn = new SqlConnection(connetionString);
             String sql = "INSERT INTO users (window_color_hex, username) values('light', 'Ramon Brakels')";
             try

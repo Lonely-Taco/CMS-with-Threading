@@ -151,7 +151,7 @@ namespace CMS
 
                     //Food myDeserializedClass = JsonConvert.DeserializeObject<Food>((string)js["parsed"]);
 
-                    foreach (EdamamResponseObject.Food food in rootobject.getFood())
+                    foreach (EdamamResponseObject.Food food in rootobject.getFoods())
                     {
                         string fname = food.label;
                     }

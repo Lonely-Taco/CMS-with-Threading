@@ -58,7 +58,7 @@ namespace CMS.main.com.nhlstenden.foodle
             public float weight { get; set; }
         }
 
-        public List<Food> getFood()
+        public List<Food> getFoods()
         {
             List<Food> foodList = new List<Food>();
             foreach (Hint hint in this.hints)

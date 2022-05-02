@@ -7,22 +7,14 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
-using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -37,16 +29,17 @@ namespace CMS.main.com.nhlstenden.foodle.pages
             CategoryTypeMultiSelectComboBox.ItemsSource = CategoryType.getCategoryTypes();
         }
 
-        private void OpenFoodInfoWindow()
+        private void OpenFoodInfoWindow(Food food)
         {
-            Food food = new Food("#123456", "Hamburger");
             string foodAsParam = JsonConvert.SerializeObject(food);
             OpenPageAsWindowAsync(typeof(FoodInfoWindow), foodAsParam);
         }
 
         public void FoodInfo_Click(object sender, RoutedEventArgs e)
         {
-            OpenFoodInfoWindow();
+            //TODO: replace with ApiConnector call
+            Food food = new Food("#123456", "Hamburger");
+            OpenFoodInfoWindow(food);
         }
 
         /// <summary>
@@ -103,28 +96,6 @@ namespace CMS.main.com.nhlstenden.foodle.pages
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            //DataTable table = GetFoodDataTable(GetFoodResult());
-            //FoodGrid.Columns.Clear();
-            //FoodGrid.AutoGenerateColumns = false;
-            //for (int i = 0; i < table.Columns.Count; i++)
-            //{
-            //    FoodGrid.Columns.Add(new DataGridTextColumn()
-            //    {
-            //        Header = table.Columns[i].ColumnName,
-            //        Binding = new Binding { Path = new PropertyPath("[" + i.ToString() + "]") }
-            //    });
-
-            //}
-
-            //var collection = new Collection<object>();
-            //foreach (DataRow row in table.Rows)
-            //{
-            //    collection.Add(row.ItemArray);
-
-            //}
-
-            //FoodGrid.ItemsSource = collection;
-
             FoodGrid.ItemsSource = GetFoodResult();
         }
 
@@ -140,25 +111,20 @@ namespace CMS.main.com.nhlstenden.foodle.pages
             return ApiConnector.GetFoodListFromApi(searchFilter);
         }
 
-        private DataTable GetFoodDataTable(List<Food> foodList)
-        {
-            DataTable foodDataTable = new DataTable();
-            foodDataTable.Columns.Add("Food ID", typeof(string));
-            foodDataTable.Columns.Add("Food name", typeof(string));
-            foodDataTable.Columns.Add("Category", typeof(string));
-            foodDataTable.Columns.Add("Brand", typeof(string));
-
-            foreach (Food food in foodList){
-
-                foodDataTable.Rows.Add(food.FoodId, food.FoodName, food.Category, food.Brand);
-            }
-
-            return foodDataTable;
-        }
-
         private void FoodDataTableInfoButton_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
+            Food food = (Food)button.DataContext;
+            OpenFoodInfoWindow(food);
+        }
+
+        private void FoodGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            //Modify the header of the "Name" column
+            if (e.Column.Header.ToString() == "ImageLocation" || e.Column.Header.ToString() == "Nutrients")
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

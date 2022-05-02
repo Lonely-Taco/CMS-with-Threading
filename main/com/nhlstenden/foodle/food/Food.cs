@@ -1,4 +1,5 @@
 ﻿using CMS.main.com.nhlstenden.foodle.filter;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace CMS.main.com.nhlstenden.foodle
             this.nutrients = new List<Nutrient>();
         }
 
+        [JsonConstructor]
         public Food(string foodId, string foodName, string category, string brand, Uri imageLocation, List<Nutrient> nutrients)
         {
             this.foodId = foodId;
@@ -39,6 +41,6 @@ namespace CMS.main.com.nhlstenden.foodle
         public Uri ImageLocation { get => imageLocation; set => imageLocation = value; }
         public string Category { get => category; set => category = value; }
         public string Brand { get => brand; set => brand = value; }
-        internal List<Nutrient> Nutrients { get => nutrients; set => nutrients = value; }
+        public List<Nutrient> Nutrients { get => nutrients; set => nutrients = value; }
     }
 }

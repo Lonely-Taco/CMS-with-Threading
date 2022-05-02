@@ -23,17 +23,13 @@
             HorizontalAlignment="Left" Margin="134,153,0,0" VerticalAlignment="Top" Width="163"
             PopupHeight="200" PopupWidth="200" FontSize="14" MinHeight="26" Height="26"/>
         <TextBox HorizontalAlignment="Left" Margin="10,150,0,0" TextWrapping="Wrap" Text="Category:" VerticalAlignment="Top"/>
-        <ui_controls:DataGrid x:Name="FoodGrid" Margin="10,220,10,72" Background="#FF676565" AutoGenerateColumns ="False">
+        <ui_controls:DataGrid x:Name="FoodGrid" Margin="10,220,10,72" Background="#FF676565" AutoGenerateColumns ="True" AutoGeneratingColumn="FoodGrid_AutoGeneratingColumn">
             <ui_controls:DataGrid.Columns>
-                <ui_controls:DataGridTextColumn Header="Food ID" Binding="{Binding Path='foodId'}"/>
-                <ui_controls:DataGridTextColumn Header="Food name" Binding="{Binding Path='foodName'}"/>
-                <ui_controls:DataGridTextColumn Header="Category" Binding="{Binding Path='category'}"/>
-                <ui_controls:DataGridTextColumn Header="Brand" Binding="{Binding Path='brand'}"/>
                 <ui_controls:DataGridTemplateColumn x:Name="InfoButton">
                     <ui_controls:DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel>
-                                <Button Content="Select" Click="FoodDataTableInfoButton_Click"/>
+                                <Button Content="View info" Click="FoodDataTableInfoButton_Click"/>
                             </StackPanel>
                         </DataTemplate>
                     </ui_controls:DataGridTemplateColumn.CellTemplate>

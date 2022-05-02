@@ -124,6 +124,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="main\com\nhlstenden\foodle\EdamamResponseObject.cs" />
     <Compile Include="main\com\nhlstenden\foodle\filter\FilterObject.cs" />
     <Compile Include="main\com\nhlstenden\foodle\filter\types\CategoryType.cs" />
     <Compile Include="main\com\nhlstenden\foodle\Measure.cs" />

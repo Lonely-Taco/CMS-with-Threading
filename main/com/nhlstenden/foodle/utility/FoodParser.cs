@@ -20,12 +20,16 @@ namespace CMS.main.com.nhlstenden.foodle.utility
 
         private static Food FoodResponseObjectToFood(EdamamResponseObject.Food foodResponseObject)
         {
+            //default image
+            Uri uri = new Uri("https://www.englishclub.com/images/vocabulary/food/italian/bruschetta.jpg");
+
+            Uri.TryCreate(foodResponseObject.image, UriKind.Absolute, out uri);
             return new Food(
                 foodResponseObject.foodId, 
                 foodResponseObject.label, 
                 foodResponseObject.category, 
-                foodResponseObject.brand, 
-                new Uri(foodResponseObject.image), 
+                foodResponseObject.brand,
+                uri, 
                 NutrientsRepsonseObjectToNutrients(foodResponseObject.nutrients)
             );
         }

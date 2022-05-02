@@ -101,9 +101,9 @@ namespace CMS.main.com.nhlstenden.foodle.pages
             }
         }
 
-        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        private async void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            DataTable table = GetFoodDataTable(GetFoodResult());
+             DataTable table = GetFoodDataTable( await GetFoodResult());
             FoodGrid.Columns.Clear();
             FoodGrid.AutoGenerateColumns = false;
             for (int i = 0; i < table.Columns.Count; i++)
@@ -124,19 +124,22 @@ namespace CMS.main.com.nhlstenden.foodle.pages
             FoodGrid.ItemsSource = collection;
         }
 
-        private List<Food> GetFoodResult()
+        private async Task<List<EdamamResponseObject.Food>> GetFoodResult()
         {
             string foodName = this.FoodNameInput.Text;
+            List<EdamamResponseObject.Food> foodList = new List<EdamamResponseObject.Food>();
 
             int.TryParse(this.MinCalInput.Text, out int minCal);
             int.TryParse(this.MaxCalInput.Text, out int maxCal);
             List<string> healthLabels = HealthLabelMultiSelectComboBox.SelectedItems.Cast<string>().ToList();
             List<string> categoryTypes = CategoryTypeMultiSelectComboBox.SelectedItems.Cast<string>().ToList();
             SearchFilter searchFilter = new SearchFilter(foodName, minCal, maxCal, healthLabels, categoryTypes);
-            return ApiConnector.GetFoodListFromApi(searchFilter);
+            foodList = await ApiConnector.GetFoodListFromApi(searchFilter);
+
+            return foodList;
         }
 
-        private DataTable GetFoodDataTable(List<Food> foodList)
+        private DataTable GetFoodDataTable(List<EdamamResponseObject.Food> foodList)
         {
             DataTable foodDataTable = new DataTable();
             foodDataTable.Columns.Add("Food ID", typeof(string));
@@ -144,8 +147,9 @@ namespace CMS.main.com.nhlstenden.foodle.pages
             foodDataTable.Columns.Add("Category", typeof(string));
             foodDataTable.Columns.Add("Brand", typeof(string));
 
-            foreach(Food food in foodList){
-                foodDataTable.Rows.Add(food.FoodId, food.FoodName, food.Category, food.Brand);
+            foreach(EdamamResponseObject.Food food in foodList){
+
+                foodDataTable.Rows.Add(food.foodId, food.label, food.category, food.brand);
             }
 
             return foodDataTable;

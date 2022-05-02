@@ -16,7 +16,6 @@ namespace CMS.main.com.nhlstenden.foodle
         public string categoryLabel { get; set; }
         public string image { get; set; }
 
-
         string foodName;
         string brand;
         Uri imageLocation;

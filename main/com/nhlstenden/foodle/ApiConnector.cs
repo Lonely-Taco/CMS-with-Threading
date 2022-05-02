@@ -62,10 +62,12 @@ namespace CMS.main.com.nhlstenden.foodle
  
         public static string CreateUrlOnName(string foodName)
         {
-            string fileName = "main\\com\\nhlstenden\\foodle\\resources\\secrets.json";
+            string fileName = "main\\com\\nhlstenden\\foodle\\resources";
             string path = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.Parent.FullName, fileName);
 
-            using (StreamReader r = new StreamReader(path))
+            string fullPatch = Path.Combine(path, "secrets.json");
+
+            using (StreamReader r = new StreamReader(Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.Parent.FullName, "main\\com\\nhlstenden\\foodle\\resources\\secrets.json")))
             {
                 string json = r.ReadToEnd();
 

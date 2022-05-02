@@ -272,6 +272,7 @@
   <ItemGroup>
     <None Include="main\com\nhlstenden\foodle\resources\secrets.json" />
     <Content Include="main\com\nhlstenden\foodle\resources\secrets.json.example" />
+    <None Include="main\secrets.json" />
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
   </ItemGroup>
   <ItemGroup>

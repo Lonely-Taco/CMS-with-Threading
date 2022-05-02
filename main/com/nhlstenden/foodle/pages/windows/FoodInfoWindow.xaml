@@ -10,13 +10,13 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="428" Width="721">
 
     <Grid>
-        <TextBox x:Name="FoodNameLabel" HorizontalAlignment="Left" Margin="53,255,0,0" TextWrapping="Wrap" Text="Food name: [missing]" VerticalAlignment="Top" Height="32" Width="270" FontSize="15" IsEnabled="False"/>
+        <TextBox x:Name="FoodNameLabel" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="[missing]" VerticalAlignment="Top" Height="32" Width="531" FontSize="15" IsEnabled="False" TextAlignment="Center"/>
 
-        <TextBox x:Name="FoodIdLabel" HorizontalAlignment="Left" Margin="53,0,0,0" TextWrapping="Wrap" Text="Food id: [missing]" VerticalAlignment="Center" Height="32" Width="270" FontSize="15" IsEnabled="False"/>
+        <TextBox x:Name="FoodIdLabel" HorizontalAlignment="Left" Margin="30,228,0,0" TextWrapping="Wrap" Text="Food id: [missing]" VerticalAlignment="Top" Height="32" Width="270" FontSize="15" IsEnabled="False"/>
         <Charting:Chart x:Name="PieChart" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="413,90,0,0" Width="275" Height="275">
             <Charting:PieSeries Name="NutrientPieSeries"  Margin="0,0,0,0" IndependentValuePath="NutrientName" DependentValuePath="NutrientAmount" IsSelectionEnabled="True"/>
         </Charting:Chart>
-        <Image x:Name="FoodImage" HorizontalAlignment="Left" Height="128" Margin="124,40,0,0" VerticalAlignment="Top" Width="128">
+        <Image x:Name="FoodImage" HorizontalAlignment="Left" Height="128" Margin="79,86,0,0" VerticalAlignment="Top" Width="128">
             <Image.Source>
                 <BitmapImage x:Name="FoodImageSource" />
             </Image.Source>

@@ -125,7 +125,7 @@ namespace CMS.main.com.nhlstenden.foodle.pages
         private void FoodGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             //Modify the header of the "Name" column
-            if (e.Column.Header.ToString() == "ImageLocation" || e.Column.Header.ToString() == "Nutrients")
+            if (e.Column.Header.ToString() == "ImageLocation" || e.Column.Header.ToString() == "Nutrients" || e.Column.Header.ToString() == "FoodId")
             {
                 e.Cancel = true;
             }

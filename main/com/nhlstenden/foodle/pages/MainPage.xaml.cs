@@ -137,7 +137,7 @@ namespace CMS
         {
             ApiConnector.InitializeClient();
 
-            using (HttpResponseMessage response = await ApiConnector.ApiClient.GetAsync(ApiConnector.CreateUrlOn()))
+            using (HttpResponseMessage response = await ApiConnector.ApiClient.GetAsync(ApiConnector.CreateUrlOnName()))
             {
 
                 if (response.IsSuccessStatusCode)

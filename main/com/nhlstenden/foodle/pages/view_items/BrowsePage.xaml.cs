@@ -97,7 +97,7 @@ namespace CMS.main.com.nhlstenden.foodle.pages
 
         private async void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            FoodGrid.ItemsSource = GetFoodResult();
+            FoodGrid.ItemsSource = await GetFoodResult();
         }
 
         private async Task<List<Food>> GetFoodResult()

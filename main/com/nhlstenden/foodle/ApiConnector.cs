@@ -81,11 +81,11 @@ namespace CMS.main.com.nhlstenden.foodle
             return CreateUrlOnName(searchFilter.TextFilter) + getFilterUrlString(searchFilter);
         }
 
-        private static string CreateUrlOnName(string foodName)
+        public static string CreateUrlOnName(string foodName)
         {
             string fileName = "edamam_client_api/resources/secrets.json";
             //TODO: Add correct path
-            string path = fileName;
+            string path = Path.Combine(S.MapPath("~/"), fileName);
 
             using (StreamReader r = new StreamReader(path))
             {

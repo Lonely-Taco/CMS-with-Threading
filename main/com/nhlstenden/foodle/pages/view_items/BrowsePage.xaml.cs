@@ -36,13 +36,6 @@ namespace CMS.main.com.nhlstenden.foodle.pages
             OpenPageAsWindowAsync(typeof(FoodInfoWindow), foodAsParam);
         }
 
-        public void FoodInfo_Click(object sender, RoutedEventArgs e)
-        {
-            //TODO: replace with ApiConnector call
-            Food food = new Food("#123456", "Hamburger");
-            OpenFoodInfoWindow(food);
-        }
-
         /// <summary>
         /// Opens a page given the page type as a new window.
         /// </summary>

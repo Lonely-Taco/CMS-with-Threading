@@ -14,8 +14,6 @@ namespace CMS.main.com.nhlstenden.foodle
 {
     internal class ApiConnector
     {
-        private static string API_ENDPOINT = "";
-
         public ApiConnector()
         {
             
@@ -31,9 +29,6 @@ namespace CMS.main.com.nhlstenden.foodle
 
         public async static Task<List<Food>> GetFoodListFromApi(SearchFilter searchFilter)
         {
-
-            List<EdamamResponseObject.Food> foodList = new List<EdamamResponseObject.Food>();
-
             InitializeClient();
 
             using (HttpResponseMessage response = await ApiClient.GetAsync(CreateUrl(searchFilter)))
@@ -55,7 +50,7 @@ namespace CMS.main.com.nhlstenden.foodle
 
         private static string CreateUrl(SearchFilter searchFilter)
         {
-            return CreateUrlOnName(searchFilter.TextFilter) + getFilterUrlString(searchFilter);
+            return CreateUrlOnName(searchFilter.TextFilter) + getFilterUrlString(searchFilter) + GetCalorieFilterString(searchFilter);
         }
 
 
@@ -79,5 +74,24 @@ namespace CMS.main.com.nhlstenden.foodle
             }
             return filterUrlString;
         }   
+
+        private static string GetCalorieFilterString(SearchFilter searchFilter)
+        {
+            if(searchFilter.MinCal != -1 && searchFilter.MaxCal != -1)
+            {
+                return String.Format("& calories = {0} - {1}", searchFilter.MinCal, searchFilter.MaxCal);
+            }else if(searchFilter.MinCal != -1)
+            {
+                return String.Format("& calories = {0}%2B", searchFilter.MinCal);
+            }
+            else if (searchFilter.MaxCal != -1)
+            {
+                return String.Format("& calories = {0}", searchFilter.MaxCal);
+            }
+            else
+            {
+                return String.Empty;
+            }
+        }
     }
 }

@@ -55,6 +55,7 @@ namespace CMS.main.com.nhlstenden.foodle
 
         }
 
+
         private static string CreateUrl(SearchFilter searchFilter)
         {
             return CreateUrlOnName(searchFilter.TextFilter) + getFilterUrlString(searchFilter);
@@ -71,7 +72,7 @@ namespace CMS.main.com.nhlstenden.foodle
 
             //    JsonValue jsonArray = JsonValue.Parse(json);
             string appId = "";
-            string appKey = "";
+            string appKey ="";
             string baseUrl = String.Format("https://api.edamam.com/api/food-database/v2/parser");
             string appSecurityString = String.Format("?app_id={0}&app_key={1}", appId, appKey);
             string nameString = String.Format("&ingr={0}&nutrition-type=cooking", foodName);

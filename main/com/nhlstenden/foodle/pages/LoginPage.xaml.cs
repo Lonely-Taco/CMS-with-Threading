@@ -25,15 +25,16 @@ namespace CMS.main.com.nhlstenden.foodle.pages
         public LoginPage()
         {
             this.InitializeComponent();
+            updateCombobox(retrieveUsers());
         }
 
         private void CreateUser(String userName)
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             String connetionString =
-                "Data Source=RAMON\\SQLEXPRESS;Initial Catalog=foodle;Integrated Security=True";
+                "Data Source=RAMON\\SQLEXPRESS;Initial Catalog=foodle;User Id=Ramonb2; Password=Password321";
             SqlConnection cnn = new SqlConnection(connetionString);
-            String sql = "INSERT INTO users (window_color_hex, username) values('light', 'Ramon Brakels')";
+            String sql = $"INSERT INTO users (window_color_hex, username) values('light', '{userName}')";
             try
             {
                 cnn.Open();
@@ -51,7 +52,45 @@ namespace CMS.main.com.nhlstenden.foodle.pages
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            CreateUser("test");
+            CreateUser(UserNameInput.Text);
+            updateCombobox(retrieveUsers());
+        }
+
+        private List<String> retrieveUsers()
+        {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            List<String> users = new List<String>();
+            String connetionString =
+                "Data Source=RAMON\\SQLEXPRESS;Initial Catalog=foodle;User Id=Ramonb2; Password=Password321";
+            SqlConnection cnn = new SqlConnection(connetionString);
+            String sql = $"SELECT username FROM users";
+            try
+            {
+                cnn.Open();
+                SqlCommand command = new SqlCommand(sql, cnn);
+                SqlDataReader dataReader = command.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    users.Add(dataReader.GetString(0));
+                }
+
+                cnn.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.Message);
+            }
+            return users;
+        }
+
+        private void updateCombobox(List<String> users)
+        {
+            UsernameComboBox.ItemsSource = users;
+        }
+
+        private void UsernameComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

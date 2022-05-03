@@ -31,5 +31,21 @@ namespace CMS.main.com.nhlstenden.foodle
         public int MaxCal { get => maxCal; set => maxCal = value; }
         public List<string> HealthFilters { get => healthFilters; set => healthFilters = value; }
         public List<string> CategoryType { get => categoryTypes; set => categoryTypes = value; }
+
+        public List<FilterObject> getFilters()
+        {
+            List<FilterObject> filters = new List<FilterObject>();
+            foreach (string healthFilter in HealthFilters)
+            {
+                filters.Add(new FilterObject(healthFilter, "health"));
+            }
+
+             foreach (string catFilter in categoryTypes)
+            {
+                filters.Add(new FilterObject(catFilter, "category"));
+            }
+                       
+            return filters;
+        }
     }
 }

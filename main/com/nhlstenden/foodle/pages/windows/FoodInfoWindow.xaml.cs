@@ -29,25 +29,18 @@ namespace CMS.main.com.nhlstenden.foodle.pages.windows
         {
             this.InitializeComponent();
             this.FoodNameLabel.Text = "No food loaded";
-            LoadChartContents();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             food = JsonConvert.DeserializeObject<Food>((string)e.Parameter);
-
-            this.FoodNameLabel.Text = food.FoodName;
-            this.FoodIdLabel.Text = food.FoodId;
+            if (food != null)
+            {
+                this.FoodNameLabel.Text = food.FoodName;
+                this.FoodIdLabel.Text = food.FoodId;
+                this.NutrientPieSeries.ItemsSource = food.Nutrients;
+            }
             base.OnNavigatedTo(e);
-        }
-
-        private void LoadChartContents()
-        {
-            List<Nutrient> nutrients = new List<Nutrient>();
-            nutrients.Add(new Nutrient(31.1f, NutrientType.ENRC_KAL));
-            nutrients.Add(new Nutrient(23.7f, NutrientType.CHOCDF));
-            nutrients.Add(new Nutrient(11.3f, NutrientType.FIBTG));
-            NutrientPieSeries.ItemsSource = nutrients;
         }
     }
 }

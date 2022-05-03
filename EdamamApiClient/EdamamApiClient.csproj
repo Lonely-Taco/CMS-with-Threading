@@ -73,16 +73,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EdamamFoodService.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="edamam_client_api\data_objects\EdamamResponseObject.cs" />
     <Compile Include="edamam_client_api\data_objects\FoodDataObject.cs" />
-    <Compile Include="EdamamFoodService.asmx.cs">
-      <DependentUpon>EdamamFoodService.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="edamam_client_api\filter\FilterObject.cs" />
     <Compile Include="edamam_client_api\filter\SearchFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

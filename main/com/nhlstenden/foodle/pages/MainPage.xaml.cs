@@ -135,27 +135,24 @@ namespace CMS
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            ApiConnector.InitializeClient();
 
-            using (HttpResponseMessage response = await ApiConnector.ApiClient.GetAsync(ApiConnector.CreateUrlOnName("ham")))
+            ApiConnector.InitializeClient();
+            using (HttpResponseMessage response = await ApiConnector.ApiClient.GetAsync(ApiConnector.CreateUrlOn()))
             {
 
                 if (response.IsSuccessStatusCode)
                 {
-                    string json = await response.Content.ReadAsStringAsync();
+                    string json= await response.Content.ReadAsStringAsync();
                     
-                    JObject js = JObject.Parse(json);
+                    //JObject js = JObject.Parse(json);
 
-               
-                    EdamamResponseObject rootobject = JsonConvert.DeserializeObject<EdamamResponseObject>(json);
+                    Food myDeserializedClass = JsonConvert.DeserializeObject<Food>(json);
 
-                    //Food myDeserializedClass = JsonConvert.DeserializeObject<Food>((string)js["parsed"]);
-
-                    foreach (EdamamResponseObject.Food food in rootobject.getFoods())
-                    {
-                        string fname = food.label;
-                    }
-        
+                    string food = myDeserializedClass.foodId;
+                    //foreach (var item in js)
+                    //{
+                    //    Food rootobject = JsonConvert.DeserializeObject<Food>((string) item.Value);
+                    //}
                 }
             }
         }

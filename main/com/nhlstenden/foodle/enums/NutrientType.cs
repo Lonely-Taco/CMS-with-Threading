@@ -8,7 +8,7 @@ namespace CMS.main.com.nhlstenden.foodle
 {
     public enum NutrientType
     {
-        ENERC_KAL,
+        ENRC_KAL,
         PRONCT,
         FAT,
         CHOCDF,

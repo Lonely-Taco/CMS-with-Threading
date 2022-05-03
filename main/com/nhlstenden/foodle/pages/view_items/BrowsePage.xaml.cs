@@ -7,15 +7,22 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -30,17 +37,16 @@ namespace CMS.main.com.nhlstenden.foodle.pages
             CategoryTypeMultiSelectComboBox.ItemsSource = CategoryType.getCategoryTypes();
         }
 
-        private void OpenFoodInfoWindow(Food food)
+        private void OpenFoodInfoWindow()
         {
+            Food food = new Food("#123456", "Hamburger");
             string foodAsParam = JsonConvert.SerializeObject(food);
             OpenPageAsWindowAsync(typeof(FoodInfoWindow), foodAsParam);
         }
 
         public void FoodInfo_Click(object sender, RoutedEventArgs e)
         {
-            //TODO: replace with ApiConnector call
-            Food food = new Food("#123456", "Hamburger");
-            OpenFoodInfoWindow(food);
+            OpenFoodInfoWindow();
         }
 
         /// <summary>
@@ -95,40 +101,54 @@ namespace CMS.main.com.nhlstenden.foodle.pages
             }
         }
 
-        private async void SearchButton_Click(object sender, RoutedEventArgs e)
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            FoodGrid.ItemsSource = await GetFoodResult();
+            DataTable table = GetFoodDataTable(GetFoodResult());
+            FoodGrid.Columns.Clear();
+            FoodGrid.AutoGenerateColumns = false;
+            for (int i = 0; i < table.Columns.Count; i++)
+            {
+                FoodGrid.Columns.Add(new DataGridTextColumn()
+                {
+                    Header = table.Columns[i].ColumnName,
+                    Binding = new Binding { Path = new PropertyPath("[" + i.ToString() + "]") }
+                });
+            }
+
+            var collection = new ObservableCollection<object>();
+            foreach (DataRow row in table.Rows)
+            {
+                collection.Add(row.ItemArray);
+            }
+
+            FoodGrid.ItemsSource = collection;
         }
 
-        private async Task<List<Food>> GetFoodResult()
+        private List<Food> GetFoodResult()
         {
             string foodName = this.FoodNameInput.Text;
-            List<Food> foodList = new List<Food>();
 
             int.TryParse(this.MinCalInput.Text, out int minCal);
             int.TryParse(this.MaxCalInput.Text, out int maxCal);
             List<string> healthLabels = HealthLabelMultiSelectComboBox.SelectedItems.Cast<string>().ToList();
             List<string> categoryTypes = CategoryTypeMultiSelectComboBox.SelectedItems.Cast<string>().ToList();
             SearchFilter searchFilter = new SearchFilter(foodName, minCal, maxCal, healthLabels, categoryTypes);
-            foodList = await ApiConnector.GetFoodListFromApi(searchFilter);
-
-            return foodList;
+            return ApiConnector.GetFoodListFromApi(searchFilter);
         }
 
-        private void FoodDataTableInfoButton_Click(object sender, RoutedEventArgs e)
+        private DataTable GetFoodDataTable(List<Food> foodList)
         {
-            Button button = sender as Button;
-            Food food = (Food)button.DataContext;
-            OpenFoodInfoWindow(food);
-        }
+            DataTable foodDataTable = new DataTable();
+            foodDataTable.Columns.Add("Food ID", typeof(string));
+            foodDataTable.Columns.Add("Food name", typeof(string));
+            foodDataTable.Columns.Add("Category", typeof(string));
+            foodDataTable.Columns.Add("Brand", typeof(string));
 
-        private void FoodGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
-        {
-            //Modify the header of the "Name" column
-            if (e.Column.Header.ToString() == "ImageLocation" || e.Column.Header.ToString() == "Nutrients")
-            {
-                e.Cancel = true;
+            foreach(Food food in foodList){
+                foodDataTable.Rows.Add(food.FoodId, food.FoodName, food.Category, food.Brand);
             }
+
+            return foodDataTable;
         }
     }
 }

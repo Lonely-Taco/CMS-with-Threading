@@ -2,10 +2,10 @@
     x:Class="CMS.main.com.nhlstenden.foodle.pages.BrowsePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CMS.main.com.nhlstenden.foodle.pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:mt="using:MonoTorrent.GUI.Controls" 
-    xmlns:ui_controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:mt="using:MonoTorrent.GUI.Controls" xmlns:ui_controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d" Height="489" Width="770">
 
     <Grid>
@@ -23,19 +23,7 @@
             HorizontalAlignment="Left" Margin="134,153,0,0" VerticalAlignment="Top" Width="163"
             PopupHeight="200" PopupWidth="200" FontSize="14" MinHeight="26" Height="26"/>
         <TextBox HorizontalAlignment="Left" Margin="10,150,0,0" TextWrapping="Wrap" Text="Category:" VerticalAlignment="Top"/>
-        <ui_controls:DataGrid x:Name="FoodGrid" Margin="10,220,10,72" Background="#FF676565" AutoGenerateColumns ="True" AutoGeneratingColumn="FoodGrid_AutoGeneratingColumn">
-            <ui_controls:DataGrid.Columns>
-                <ui_controls:DataGridTemplateColumn x:Name="InfoButton">
-                    <ui_controls:DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <Button Content="View info" Click="FoodDataTableInfoButton_Click"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ui_controls:DataGridTemplateColumn.CellTemplate>
-                </ui_controls:DataGridTemplateColumn>
-            </ui_controls:DataGrid.Columns>
-        </ui_controls:DataGrid>
+        <ui_controls:DataGrid x:Name="FoodGrid" Margin="10,220,10,72" Background="#FF676565"/>
         <Button x:Name="SearchButton" Content="Search" Margin="350,150,0,0" VerticalAlignment="Top" Width="104" Click="SearchButton_Click"/>
     </Grid>
 </UserControl>

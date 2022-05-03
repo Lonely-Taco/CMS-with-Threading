@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using WinRTXamlToolkit.Controls.DataVisualization.Charting;
 
@@ -35,9 +36,13 @@ namespace CMS.main.com.nhlstenden.foodle.pages.windows
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             food = JsonConvert.DeserializeObject<Food>((string)e.Parameter);
-
-            this.FoodNameLabel.Text = food.FoodName;
-            this.FoodIdLabel.Text = food.FoodId;
+            if (food != null)
+            {
+                this.FoodNameLabel.Text = food.GetTitle();
+                this.FoodIdLabel.Text = food.FoodId;
+                this.NutrientPieSeries.ItemsSource = food.Nutrients;
+                this.FoodImageSource.UriSource = food.ImageLocation;
+            }
             base.OnNavigatedTo(e);
         }
 

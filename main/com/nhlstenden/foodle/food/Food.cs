@@ -55,6 +55,18 @@ namespace CMS.main.com.nhlstenden.foodle
         public Uri ImageLocation { get => imageLocation; set => imageLocation = value; }
         public string Category { get => category; set => category = value; }
         public string Brand { get => brand; set => brand = value; }
-        internal List<Nutrient> Nutrients { get => nutrients; set => nutrients = value; }
+        public List<Nutrient> Nutrients { get => nutrients; set => nutrients = value; }
+
+        public string GetTitle()
+        {
+            if (Brand != null)
+            {
+                return String.Format("{0} by {1}", FoodName, Brand);
+            }
+            else
+            {
+                return FoodName;
+            }
+        }
     }
 }

@@ -7,15 +7,19 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Charting="using:WinRTXamlToolkit.Controls.DataVisualization.Charting"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="754" Width="1188">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="428" Width="721">
 
-    <Grid Margin="0,0,10,10">
-        <TextBox x:Name="FoodNameLabel" HorizontalAlignment="Left" Margin="53,139,0,0" TextWrapping="Wrap" Text="Food name: [missing]" VerticalAlignment="Top" Height="64" Width="542" FontSize="36" IsEnabled="False"/>
+    <Grid>
+        <TextBox x:Name="FoodNameLabel" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="[missing]" VerticalAlignment="Top" Height="32" Width="531" FontSize="15" IsEnabled="False" TextAlignment="Center"/>
 
-        <TextBox x:Name="FoodIdLabel" HorizontalAlignment="Left" Margin="53,208,0,0" TextWrapping="Wrap" Text="Food id: [missing]" VerticalAlignment="Top" Height="64" Width="542" FontSize="36" IsEnabled="False"/>
-        <Charting:Chart x:Name="PieChart" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="700,76,0,0" Width="400" Height="400">
-            <Charting:PieSeries Name="NutrientPieSeries"  Margin="0" IndependentValuePath="NutrientName" DependentValuePath="NutrientAmount" IsSelectionEnabled="True"/>
+        <TextBox x:Name="FoodIdLabel" HorizontalAlignment="Left" Margin="30,228,0,0" TextWrapping="Wrap" Text="Food id: [missing]" VerticalAlignment="Top" Height="32" Width="270" FontSize="15" IsEnabled="False"/>
+        <Charting:Chart x:Name="PieChart" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="413,90,0,0" Width="275" Height="275">
+            <Charting:PieSeries Name="NutrientPieSeries"  Margin="0,0,0,0" IndependentValuePath="NutrientName" DependentValuePath="NutrientAmount" IsSelectionEnabled="True"/>
         </Charting:Chart>
-
+        <Image x:Name="FoodImage" HorizontalAlignment="Left" Height="128" Margin="79,86,0,0" VerticalAlignment="Top" Width="128">
+            <Image.Source>
+                <BitmapImage x:Name="FoodImageSource" />
+            </Image.Source>
+        </Image>
     </Grid>
 </Page>

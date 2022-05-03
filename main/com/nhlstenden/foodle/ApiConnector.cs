@@ -5,6 +5,10 @@ using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
+using CMS.main.com.nhlstenden.foodle.filter;
+using System.Threading.Tasks;
+using CMS.main.com.nhlstenden.foodle.utility;
+using CMS.main.com.nhlstenden.foodle.resources;
 
 namespace CMS.main.com.nhlstenden.foodle
 {
@@ -29,23 +33,41 @@ namespace CMS.main.com.nhlstenden.foodle
         {
             //string filePath = "main/com/nhlstenden/foodle/resources/secrets.json";
 
-            //string path = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.Parent.FullName, filePath);
+            List<EdamamResponseObject.Food> foodList = new List<EdamamResponseObject.Food>();
 
-            //using (StreamReader r = new StreamReader(path))
-            //{
+            InitializeClient();
 
-                //string json = r.ReadToEnd();
-                //JObject js = JObject.Parse(json);
-        
-                //string appId = (string) js["app_secret"]["app_"]; 
-                //string appKey = (string)js["app_secret"]["app_key"];
-                string appId = "59faa57b";
-                string appKey = "1bf15500cc5d97d8df1c30962a0cc5e9";
-                string baseUrl = String.Format("https://api.edamam.com/api/food-database/v2/parser");
-                string appSecurityString = String.Format("?app_id={0}&app_key={1}", appId, appKey);
-                string nameString = String.Format("&ingr={0}&nutrition-type=cooking", "ham");
-                return baseUrl + appSecurityString + nameString;
-            //}
+            using (HttpResponseMessage response = await ApiClient.GetAsync(CreateUrl(searchFilter)))
+            {
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string json = await response.Content.ReadAsStringAsync();
+                    EdamamResponseObject rootobject = JsonConvert.DeserializeObject<EdamamResponseObject>(json);
+                    return FoodParser.FoodResponseObjectListToFoodList(rootobject.getFoods());
+                }
+                else
+                {
+                    //TODO: Add exception here
+                    return null;
+                }
+            }
+        }
+
+        private static string CreateUrl(SearchFilter searchFilter)
+        {
+            return CreateUrlOnName(searchFilter.TextFilter) + getFilterUrlString(searchFilter);
+        }
+
+
+        public static string CreateUrlOnName(string foodName)
+        {
+            string appId = Secrets.app_id;
+            string appKey = Secrets.app_key;
+            string baseUrl = String.Format("https://api.edamam.com/api/food-database/v2/parser");
+            string appSecurityString = String.Format("?app_id={0}&app_key={1}", appId, appKey);
+            string nameString = String.Format("&ingr={0}&nutrition-type=cooking", foodName);
+            return baseUrl + appSecurityString + nameString;
         }
 
         public static List<Food> GetFoodListFromApi(SearchFilter searchFilter)

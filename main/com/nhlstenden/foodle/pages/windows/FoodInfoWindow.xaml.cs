@@ -37,7 +37,7 @@ namespace CMS.main.com.nhlstenden.foodle.pages.windows
             food = JsonConvert.DeserializeObject<Food>((string)e.Parameter);
             if (food != null)
             {
-                this.FoodNameLabel.Text = food.FoodName;
+                this.FoodNameLabel.Text = food.GetTitle();
                 this.FoodIdLabel.Text = food.FoodId;
                 this.NutrientPieSeries.ItemsSource = food.Nutrients;
                 this.FoodImageSource.UriSource = food.ImageLocation;

@@ -24,7 +24,7 @@ namespace CMS.main.com.nhlstenden.foodle
         }
 
         public float NutrientAmount { get => nutrientAmount; set => nutrientAmount = value; }
-        internal NutrientType NutrientType { get => nutrientType; set => nutrientType = value; }
+        public NutrientType NutrientType { get => nutrientType; set => nutrientType = value; }
         public string NutrientName { get => nutrientType.ToString();}
     }
 }

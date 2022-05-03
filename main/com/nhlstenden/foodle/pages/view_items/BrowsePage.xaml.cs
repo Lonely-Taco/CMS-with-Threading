@@ -98,8 +98,10 @@ namespace CMS.main.com.nhlstenden.foodle.pages
             string foodName = this.FoodNameInput.Text;
             List<Food> foodList = new List<Food>();
 
-            int.TryParse(this.MinCalInput.Text, out int minCal);
-            int.TryParse(this.MaxCalInput.Text, out int maxCal);
+            //if calorie input is not a number value gets set to -1, otherwise it will get parsed to the correct number
+            int minCal = int.TryParse(this.MinCalInput.Text, out minCal) ? minCal : -1;
+            int maxCal = int.TryParse(this.MaxCalInput.Text, out maxCal) ? maxCal : -1;
+
             List<string> healthLabels = HealthLabelMultiSelectComboBox.SelectedItems.Cast<string>().ToList();
             List<string> categoryTypes = CategoryTypeMultiSelectComboBox.SelectedItems.Cast<string>().ToList();
             SearchFilter searchFilter = new SearchFilter(foodName, minCal, maxCal, healthLabels, categoryTypes);

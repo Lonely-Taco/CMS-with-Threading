@@ -70,7 +70,7 @@ namespace CMS.main.com.nhlstenden.foodle
 
             foreach (FilterObject filter in searchFilter.getFilters())
             {
-                String.Format("&{0}={1}", filter.FilterType, filter.FilterName);
+                filterUrlString += String.Format("&{0}={1}", filter.FilterType, filter.FilterName);
             }
             return filterUrlString;
         }   
@@ -79,14 +79,14 @@ namespace CMS.main.com.nhlstenden.foodle
         {
             if(searchFilter.MinCal != -1 && searchFilter.MaxCal != -1)
             {
-                return String.Format("& calories = {0} - {1}", searchFilter.MinCal, searchFilter.MaxCal);
+                return String.Format("&calories={0}-{1}", searchFilter.MinCal, searchFilter.MaxCal);
             }else if(searchFilter.MinCal != -1)
             {
-                return String.Format("& calories = {0}%2B", searchFilter.MinCal);
+                return String.Format("&calories={0}%2B", searchFilter.MinCal);
             }
             else if (searchFilter.MaxCal != -1)
             {
-                return String.Format("& calories = {0}", searchFilter.MaxCal);
+                return String.Format("&calories={0}", searchFilter.MaxCal);
             }
             else
             {

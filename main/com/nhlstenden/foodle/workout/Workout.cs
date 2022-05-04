@@ -11,17 +11,15 @@ namespace CMS.main.com.nhlstenden.foodle
     {
         DateTime startDate;
         DateTime endDate;
-        List<WeekDay> scheduledDays;
         String workoutName;
         String description;
         int expectedCaloriesBurned;
         List<WorkoutSession> workoutSessions;
 
-        public Workout(DateTime startDate, DateTime endDate, List<WeekDay> scheduledDays, string workoutName, string description, int expectedCaloriesBurned)
+        public Workout(DateTime startDate, DateTime endDate, string workoutName, string description, int expectedCaloriesBurned)
         {
             this.startDate = startDate;
             this.endDate = endDate;
-            this.scheduledDays = scheduledDays;
             this.workoutName = workoutName;
             this.description = description;
             this.expectedCaloriesBurned = expectedCaloriesBurned;
@@ -33,7 +31,6 @@ namespace CMS.main.com.nhlstenden.foodle
         public string WorkoutName { get => workoutName; set => workoutName = value; }
         public string Description { get => description; set => description = value; }
         public int ExpectedCaloriesBurned { get => expectedCaloriesBurned; set => expectedCaloriesBurned = value; }
-        internal List<WeekDay> ScheduledDays { get => scheduledDays; set => scheduledDays = value; }
         public List<WorkoutSession> GetWorkoutSessions { get => workoutSessions; }
 
         public void addWorkoutSession(WorkoutSession workoutSession)

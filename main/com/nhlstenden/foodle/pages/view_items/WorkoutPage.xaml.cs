@@ -31,7 +31,7 @@ namespace CMS.main.com.nhlstenden.foodle.pages
         private void OpenWorkoutWindow()
         {
             List<WeekDay> ScheduledDays = new List<WeekDay>((int)WeekDay.FRIDAY);
-            Workout workout = new Workout(DateTime.Now, DateTime.Now.AddMinutes(10), ScheduledDays, "Hell", "Hard", 400);
+            Workout workout = new Workout(DateTime.Now, DateTime.Now.AddMinutes(10), "Hell", "Hard", 400);
             string workoutAsParam = JsonConvert.SerializeObject(workout);
             OpenPageAsWindowAsync(typeof(windows.WorkoutWindow), workoutAsParam);
         }

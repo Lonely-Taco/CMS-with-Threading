@@ -129,7 +129,6 @@
     <Compile Include="main\com\nhlstenden\foodle\filter\types\CategoryType.cs" />
     <Compile Include="main\com\nhlstenden\foodle\Measure.cs" />
     <Compile Include="main\com\nhlstenden\foodle\resources\Secrets.cs" />
-    <None Include="main\com\nhlstenden\foodle\resources\Secrets.cs.example" />
     <Compile Include="main\com\nhlstenden\foodle\Root.cs" />
     <Compile Include="main\com\nhlstenden\foodle\utility\FoodParser.cs" />
     <Compile Include="main\controls\MultiSelectComboBox.xaml.cs">
@@ -272,6 +271,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="main\com\nhlstenden\foodle\resources\secrets.json" />
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
   </ItemGroup>
   <ItemGroup>

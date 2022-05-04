@@ -9,7 +9,7 @@
     mc:Ignorable="d" Height="574" Width="785">
 
     <Grid>
-        <TextBox x:Name="FoodNameInput" HorizontalAlignment="Left" Margin="134,23,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="163"/>
+        <TextBox x:Name="FoodNameInput" HorizontalAlignment="Left" Margin="134,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" PlaceholderText="Search food"/>
         <TextBox HorizontalAlignment="Left" Margin="10,23,0,0" TextWrapping="Wrap" Text="Food name:" VerticalAlignment="Top"/>
         <TextBox x:Name="MinCalInput" HorizontalAlignment="Left" Margin="133,68,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" PlaceholderText="Min" TextChanging="NumberBox_OnTextChanging"/>
         <TextBox HorizontalAlignment="Left" Margin="10,68,0,0" TextWrapping="Wrap" Text="Calories:" VerticalAlignment="Top"/>

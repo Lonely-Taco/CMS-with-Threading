@@ -29,7 +29,6 @@
                 x:Name="CreateReport"
                 Width="200"
                 Height="50"
-                Click="Button_Click"
                 Content="Make report"
                 FontSize="30" />
         </StackPanel>

@@ -9,7 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="605" Height="604">
 
     <Grid>
-        <Button Content="Button" Margin="0,499,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Height="49" Width="95" Click="Button_Click"/>
+        <Button Content="Add workout" Margin="0,499,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Height="49" Width="95" Click="Button_Click"/>
         <DatePicker Margin="50,140,0,0" VerticalAlignment="Top" x:Name="StartDateInput"/>
         <DatePicker Margin="50,225,0,0" VerticalAlignment="Top" x:Name="EndDateInput"/>
         <TextBlock HorizontalAlignment="Left" Margin="50,116,0,0" TextWrapping="Wrap" Text="Start date" VerticalAlignment="Top"/>

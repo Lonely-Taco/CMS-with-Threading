@@ -153,9 +153,6 @@
     <Compile Include="main\com\nhlstenden\foodle\pages\view_items\BrowsePage.xaml.cs">
       <DependentUpon>BrowsePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="main\com\nhlstenden\foodle\pages\view_items\HomePage.xaml.cs">
-      <DependentUpon>HomePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="main\com\nhlstenden\foodle\pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -167,9 +164,6 @@
     </Compile>
     <Compile Include="main\com\nhlstenden\foodle\pages\windows\FoodInfoWindow.xaml.cs">
       <DependentUpon>FoodInfoWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="main\com\nhlstenden\foodle\pages\windows\WorkoutSessionWindow.xaml.cs">
-      <DependentUpon>WorkoutSessionWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="main\com\nhlstenden\foodle\pages\windows\WorkoutWindow.xaml.cs">
       <DependentUpon>WorkoutWindow.xaml</DependentUpon>
@@ -224,10 +218,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="main\com\nhlstenden\foodle\pages\view_items\HomePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="main\com\nhlstenden\foodle\pages\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -241,10 +231,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="main\com\nhlstenden\foodle\pages\windows\FoodInfoWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="main\com\nhlstenden\foodle\pages\windows\WorkoutSessionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

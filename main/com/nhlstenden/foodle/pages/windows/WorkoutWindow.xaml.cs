@@ -69,7 +69,7 @@ namespace CMS.main.com.nhlstenden.foodle.pages.windows
         }
 
         // Save button click
-        private async void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             SaveWorkout();
         }

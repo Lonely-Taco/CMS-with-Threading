@@ -30,14 +30,17 @@ namespace CMS.main.com.nhlstenden.foodle.pages
 
         private void CreateUser(String userName)
         {
+            // Create connection to database
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             String connetionString =
-                "[CONNECTIONSTRING]";
+                "Data Source = DESKTOP - PIVKCNJ; Initial Catalog = Foodle; User ID = 'SQL Login'; Password = SQLLogin";
             SqlConnection cnn = new SqlConnection(connetionString);
             String sql = $"INSERT INTO users (window_color_hex, username) values('light', '{userName}')";
             try
             {
+                // Open connection
                 cnn.Open();
+                // Execute sql
                 SqlCommand command = new SqlCommand(sql, cnn);
                 command.ExecuteNonQuery();
                 cnn.Close();
@@ -46,11 +49,9 @@ namespace CMS.main.com.nhlstenden.foodle.pages
             {
                Console.Write(ex.Message); 
             }
-
-
         }
 
-        private async void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             CreateUser(UserNameInput.Text);
             updateCombobox(retrieveUsers());
@@ -58,15 +59,19 @@ namespace CMS.main.com.nhlstenden.foodle.pages
 
         private List<String> retrieveUsers()
         {
+            // Create connection to database
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             List<String> users = new List<String>();
             String connetionString =
-                "Data Source=RAMON\\SQLEXPRESS;Initial Catalog=foodle;User Id=Ramonb2; Password=Password321";
+                // IMPORTANT!! ADD MSSMS PC name \|/
+                "Data Source=**Insert own MSSMS PC name** ;Initial Catalog=foodle;User Id=Ramonb2; Password=Password321";
             SqlConnection cnn = new SqlConnection(connetionString);
             String sql = $"SELECT username FROM users";
             try
             {
+                // Open connection
                 cnn.Open();
+                // Execute sql
                 SqlCommand command = new SqlCommand(sql, cnn);
                 SqlDataReader dataReader = command.ExecuteReader();
                 while (dataReader.Read())
@@ -90,7 +95,7 @@ namespace CMS.main.com.nhlstenden.foodle.pages
 
         private void UsernameComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            // Not implmented YET
         }
     }
 }

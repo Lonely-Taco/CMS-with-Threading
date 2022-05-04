@@ -42,16 +42,6 @@ namespace CMS
 
         private void InitializeMenuItems()
         {
-            NavigationViewItem homeItem = new NavigationViewItem()
-            {
-                Content = "Home",
-                Icon = new FontIcon()
-                {
-                    FontFamily = iconFont,
-                    Glyph = "\xE80F"
-                }
-            };
-
             NavigationViewItem browseItem = new NavigationViewItem()
             {
                 Content = "Browse",
@@ -73,8 +63,6 @@ namespace CMS
             };
 
 
-
-            this.mainNavigationView.MenuItems.Add(homeItem);
             this.mainNavigationView.MenuItems.Add(browseItem);
             this.mainNavigationView.MenuItems.Add(workoutItem);
 
@@ -90,9 +78,6 @@ namespace CMS
                 {
                     switch (item.Content)
                     {
-                        case "Home":
-                            selectedItemFrame.Content = new HomePage();
-                            break;
                         case "Browse":
                             selectedItemFrame.Content = new BrowsePage();
                             break;
@@ -133,31 +118,9 @@ namespace CMS
             return await ApplicationViewSwitcher.TryShowAsStandaloneAsync(id);
         }
 
-        private async void Button_Click(object sender, RoutedEventArgs e)
+        private void selectedItemFrame_Navigated(object sender, NavigationEventArgs e)
         {
-            ApiConnector.InitializeClient();
 
-            using (HttpResponseMessage response = await ApiConnector.ApiClient.GetAsync(ApiConnector.CreateUrlOnName("ham")))
-            {
-
-                if (response.IsSuccessStatusCode)
-                {
-                    string json = await response.Content.ReadAsStringAsync();
-                    
-                    JObject js = JObject.Parse(json);
-
-               
-                    EdamamResponseObject rootobject = JsonConvert.DeserializeObject<EdamamResponseObject>(json);
-
-                    //Food myDeserializedClass = JsonConvert.DeserializeObject<Food>((string)js["parsed"]);
-
-                    foreach (EdamamResponseObject.Food food in rootobject.getFoods())
-                    {
-                        string fname = food.label;
-                    }
-        
-                }
-            }
         }
     }
 }

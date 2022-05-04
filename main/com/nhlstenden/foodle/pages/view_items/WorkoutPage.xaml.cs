@@ -36,21 +36,9 @@ namespace CMS.main.com.nhlstenden.foodle.pages
             OpenPageAsWindowAsync(typeof(windows.WorkoutWindow), workoutAsParam);
         }
 
-        private void OpenWorkoutSessionWindow()
-        {
-            WorkoutSession workoutSession = new WorkoutSession(DateTime.Now, DateTime.Now.AddMinutes(10), 400);
-            string workoutSessionAsParam = JsonConvert.SerializeObject(workoutSession);
-            OpenPageAsWindowAsync(typeof(windows.WorkoutSessionWindow), workoutSessionAsParam);
-        }
-
         public void AddWorkout_Click(object sender, RoutedEventArgs e)
         {
             OpenWorkoutWindow();
-        }
-
-        public void OpenSession_Click(object sender, RoutedEventArgs e)
-        {
-            OpenWorkoutSessionWindow();
         }
 
         /// <summary>

@@ -136,6 +136,7 @@ CREATE TABLE workout
      end_date    DATE NOT NULL,
      name        VARCHAR(50) NOT NULL,
      description TEXT NOT NULL,
+     amount_of_calories_burned INT NOT NULL,
      PRIMARY KEY(id)
   )
 

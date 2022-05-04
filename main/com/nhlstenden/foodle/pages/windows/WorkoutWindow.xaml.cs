@@ -16,13 +16,10 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+// The Workout Window item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace CMS.main.com.nhlstenden.foodle.pages.windows
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class WorkoutWindow : Page
     {
         public WorkoutWindow()
@@ -30,25 +27,30 @@ namespace CMS.main.com.nhlstenden.foodle.pages.windows
             this.InitializeComponent();
         }
 
-        private async Task<Workout> SaveWorkout()
+        private Workout SaveWorkout()
         {
+            // Bind data
             string workoutName = this.WorkoutNameInput.Text;
             DateTime startDate = this.StartDateInput.Date.DateTime;
             DateTime endDate = this.EndDateInput.Date.DateTime;
             string workoutDescription = this.WorkoutDescriptionInput.Text;
             int amountOfCaloriesBurned = (int) this.AmountOfCaloriesBurned.Value;
+            // Instansiate workout to add to database
             Workout workoutToAdd = new Workout(startDate, endDate, workoutName, workoutDescription, amountOfCaloriesBurned);
 
+            // Make connection to database
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             String connetionString =
             "Data Source=DESKTOP-PIVKCNJ;Initial Catalog=foodle;User Id=SQL Login; Password=SQLLogin";
             SqlConnection cnn = new SqlConnection(connetionString);
+            // SQL to be executed
             String sql = "INSERT INTO workout (user_id, start_date, end_date, name, description, amount_of_calories_burned) values(@user_id, @startDate, @endDate, @workoutName, @workoutDescription, @amountOfCaloriesBurned)";
 
             try
             {
                 cnn.Open();
                 SqlCommand command = new SqlCommand(sql, cnn);
+                // Add parameters
                 command.Parameters.AddWithValue("@user_id", 1);
                 command.Parameters.AddWithValue("@startDate", workoutToAdd.StartDate);
                 command.Parameters.AddWithValue("@endDate", workoutToAdd.EndDate);
@@ -66,9 +68,10 @@ namespace CMS.main.com.nhlstenden.foodle.pages.windows
             return workoutToAdd;
         }
 
+        // Save button click
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            await SaveWorkout();
+            SaveWorkout();
         }
 
     }

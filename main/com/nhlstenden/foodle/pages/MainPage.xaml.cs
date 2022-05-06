@@ -62,6 +62,16 @@ namespace CMS
                 }
             };
 
+            NavigationViewItem loginItem = new NavigationViewItem()
+            {
+                Content = "Select user",
+                Icon = new FontIcon()
+                {
+                    FontFamily = iconFont,
+                    Glyph = "\xe008"
+                }
+            };
+
 
             this.mainNavigationView.MenuItems.Add(browseItem);
             this.mainNavigationView.MenuItems.Add(workoutItem);
@@ -74,22 +84,23 @@ namespace CMS
         {
             try
             {
-                if (args.SelectedItem is NavigationViewItem item)
+                if (!(args.SelectedItem is NavigationViewItem item)) return;
+                switch (item.Content)
                 {
-                    switch (item.Content)
-                    {
-                        case "Browse":
-                            selectedItemFrame.Content = new BrowsePage();
-                            break;
-                        case "Workout":
-                            selectedItemFrame.Content = new WorkoutPage();
-                            break;
-                        case "Settings":
-                            selectedItemFrame.Content = new UserSettingsPage();
-                            break;
-                        default:
-                            break;
-                    }
+                    case "Browse":
+                        selectedItemFrame.Content = new BrowsePage();
+                        break;
+                    case "Workout":
+                        selectedItemFrame.Content = new WorkoutPage();
+                        break;
+                    case "Select user":
+                        selectedItemFrame.Content = new LoginPage();
+                        break;
+                    case "Settings":
+                        selectedItemFrame.Content = new UserSettingsPage();
+                        break;
+                    default:
+                        break;
                 }
             } catch (Exception ex)
             {

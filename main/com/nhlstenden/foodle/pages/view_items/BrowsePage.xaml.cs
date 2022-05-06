@@ -17,10 +17,9 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
 
-// The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
-
 namespace CMS.main.com.nhlstenden.foodle.pages
 {
+    //Browse page used for finding a food item from the Edamam API
     public sealed partial class BrowsePage : UserControl
     {
         public BrowsePage()
@@ -36,10 +35,6 @@ namespace CMS.main.com.nhlstenden.foodle.pages
             OpenPageAsWindowAsync(typeof(FoodInfoWindow), foodAsParam);
         }
 
-        /// <summary>
-        /// Opens a page given the page type as a new window.
-        /// </summary>
-        /// <param name="t"></param>
         private async void OpenPageAsWindowAsync(Type t, string param)
         {
             var currentAV = ApplicationView.GetForCurrentView();
@@ -96,7 +91,6 @@ namespace CMS.main.com.nhlstenden.foodle.pages
         private async Task<List<Food>> GetFoodResult()
         {
             string foodName = this.FoodNameInput.Text;
-            List<Food> foodList = new List<Food>();
 
             //if calorie input is not a number value gets set to -1, otherwise it will get parsed to the correct number
             int minCal = int.TryParse(this.MinCalInput.Text, out minCal) ? minCal : -1;
@@ -105,7 +99,7 @@ namespace CMS.main.com.nhlstenden.foodle.pages
             List<string> healthLabels = HealthLabelMultiSelectComboBox.SelectedItems.Cast<string>().ToList();
             List<string> categoryTypes = CategoryTypeMultiSelectComboBox.SelectedItems.Cast<string>().ToList();
             SearchFilter searchFilter = new SearchFilter(foodName, minCal, maxCal, healthLabels, categoryTypes);
-            foodList = await ApiConnector.GetFoodListFromApi(searchFilter);
+            List<Food> foodList = await ApiConnector.GetFoodListFromApi(searchFilter);
 
             return foodList;
         }
@@ -124,6 +118,7 @@ namespace CMS.main.com.nhlstenden.foodle.pages
             {
                 e.Cancel = true;
             }
+            //Disable user input inside cells 
             e.Column.IsReadOnly = true;
         }
     }

@@ -10,18 +10,18 @@
 
     <Grid>
         <TextBox x:Name="FoodNameInput" HorizontalAlignment="Left" Margin="134,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" PlaceholderText="Search food"/>
-        <TextBox HorizontalAlignment="Left" Margin="10,23,0,0" TextWrapping="Wrap" Text="Food name:" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="10,23,0,0" TextWrapping="Wrap" Text="Food name:" VerticalAlignment="Top" IsEnabled="False"/>
         <TextBox x:Name="MinCalInput" HorizontalAlignment="Left" Margin="133,68,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" PlaceholderText="Min" TextChanging="NumberBox_OnTextChanging"/>
-        <TextBox HorizontalAlignment="Left" Margin="10,68,0,0" TextWrapping="Wrap" Text="Calories:" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="10,68,0,0" TextWrapping="Wrap" Text="Calories:" VerticalAlignment="Top" IsEnabled="False"/>
         <TextBox x:Name="MaxCalInput" HorizontalAlignment="Left" Margin="226,68,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" PlaceholderText="Max" TextChanging="NumberBox_OnTextChanging"/>
         <mt:MultiSelectComboBox x:Name="HealthLabelMultiSelectComboBox"     
             HorizontalAlignment="Left" Margin="134,113,0,0" VerticalAlignment="Top" Width="163"
             PopupHeight="200" PopupWidth="200" FontSize="14" MinHeight="26" Height="26"/>
-        <TextBox HorizontalAlignment="Left" Margin="10,110,0,0" TextWrapping="Wrap" Text="Health labels:" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="10,110,0,0" TextWrapping="Wrap" Text="Health labels:" VerticalAlignment="Top" IsEnabled="False"/>
         <mt:MultiSelectComboBox x:Name="CategoryTypeMultiSelectComboBox"     
             HorizontalAlignment="Left" Margin="134,153,0,0" VerticalAlignment="Top" Width="163"
             PopupHeight="200" PopupWidth="200" FontSize="14" MinHeight="26" Height="26"/>
-        <TextBox HorizontalAlignment="Left" Margin="10,150,0,0" TextWrapping="Wrap" Text="Category:" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="10,150,0,0" TextWrapping="Wrap" Text="Category:" VerticalAlignment="Top" IsEnabled="False"/>
         <ui_controls:DataGrid x:Name="FoodGrid" Margin="10,220,10,10" Background="#FF676565" AutoGenerateColumns ="True" AutoGeneratingColumn="FoodGrid_AutoGeneratingColumn">
             <ui_controls:DataGrid.Columns>
                 <ui_controls:DataGridTemplateColumn x:Name="InfoButton">

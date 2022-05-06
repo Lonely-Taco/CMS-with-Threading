@@ -124,6 +124,7 @@ namespace CMS.main.com.nhlstenden.foodle.pages
             {
                 e.Cancel = true;
             }
+            e.Column.IsReadOnly = true;
         }
     }
 }

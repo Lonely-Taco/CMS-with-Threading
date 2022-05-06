@@ -218,3 +218,8 @@ ALTER TABLE workout
 ALTER TABLE workout_session
   ADD CONSTRAINT fk_workout_session_workout FOREIGN KEY(workout_id) REFERENCES
   workout(id) 
+
+CREATE LOGIN SQLLogin1 WITH PASSWORD = 'SQLLogin';
+USE Foodle;
+CREATE USER SQLLogin1 FOR LOGIN SQLLogin1;
+GO;

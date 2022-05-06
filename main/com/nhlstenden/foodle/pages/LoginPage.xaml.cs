@@ -31,7 +31,7 @@ namespace CMS.main.com.nhlstenden.foodle.pages
             // Create connection to database
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             String connetionString =
-                "Data Source = DESKTOP - PIVKCNJ; Initial Catalog = Foodle; User ID = 'SQL Login'; Password = SQLLogin";
+                "Data Source = (your PC name here); Initial Catalog = Foodle; User ID = 'SQLLogin1'; Password = SQLLogin";
             SqlConnection cnn = new SqlConnection(connetionString);
             String sql = $"INSERT INTO users (window_color_hex, username) values('light', '{userName}')";
             try
@@ -62,7 +62,7 @@ namespace CMS.main.com.nhlstenden.foodle.pages
             List<String> users = new List<String>();
             String connetionString =
                 // IMPORTANT!! ADD MSSMS PC name \|/
-                "Data Source=**Insert own MSSMS PC name** ;Initial Catalog=foodle;User Id=Ramonb2; Password=Password321";
+                "Data Source=(your PC name here);Initial Catalog=foodle;User Id=SQLLogin1; Password=SQLLogin";
             SqlConnection cnn = new SqlConnection(connetionString);
             String sql = $"SELECT username FROM users";
             try

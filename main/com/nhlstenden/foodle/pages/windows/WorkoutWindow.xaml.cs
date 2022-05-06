@@ -39,7 +39,7 @@ namespace CMS.main.com.nhlstenden.foodle.pages.windows
             // Make connection to database
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             String connetionString =
-            "Data Source=DESKTOP-PIVKCNJ;Initial Catalog=foodle;User Id=SQL Login; Password=SQLLogin";
+            "Data Source=(your PC name here);Initial Catalog=foodle;User Id=SQLLogin1; Password=SQLLogin";
             SqlConnection cnn = new SqlConnection(connetionString);
             // SQL to be executed
             String sql = "INSERT INTO workout (user_id, start_date, end_date, name, description, amount_of_calories_burned) values(@user_id, @startDate, @endDate, @workoutName, @workoutDescription, @amountOfCaloriesBurned)";

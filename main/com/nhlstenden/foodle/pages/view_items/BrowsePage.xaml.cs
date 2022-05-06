@@ -17,10 +17,9 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
 
-// The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
-
 namespace CMS.main.com.nhlstenden.foodle.pages
 {
+    //Browse page used for finding a food item from the Edamam API
     public sealed partial class BrowsePage : UserControl
     {
         public BrowsePage()
@@ -36,10 +35,6 @@ namespace CMS.main.com.nhlstenden.foodle.pages
             OpenPageAsWindowAsync(typeof(FoodInfoWindow), foodAsParam);
         }
 
-        /// <summary>
-        /// Opens a page given the page type as a new window.
-        /// </summary>
-        /// <param name="t"></param>
         private async void OpenPageAsWindowAsync(Type t, string param)
         {
             var currentAV = ApplicationView.GetForCurrentView();
@@ -124,6 +119,7 @@ namespace CMS.main.com.nhlstenden.foodle.pages
             {
                 e.Cancel = true;
             }
+            //Disable user input inside cells 
             e.Column.IsReadOnly = true;
         }
     }

@@ -22,12 +22,10 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
-
 namespace CMS
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// The page containing references to the other pages in the application
     /// </summary>
     public sealed partial class MainPage : Page
     {
@@ -97,10 +95,6 @@ namespace CMS
             }
         }
 
-        /// <summary>
-        /// Opens a page given the page type as a new window.
-        /// </summary>
-        /// <param name="t"></param>
         private async Task<bool> OpenPageAsWindowAsync(Type t)
         {
             var view = CoreApplication.CreateNewView();

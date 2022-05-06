@@ -16,8 +16,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Workout Window item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace CMS.main.com.nhlstenden.foodle.pages.windows
 {
     public sealed partial class WorkoutWindow : Page

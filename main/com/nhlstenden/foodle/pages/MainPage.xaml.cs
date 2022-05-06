@@ -73,6 +73,7 @@ namespace CMS
 
             this.mainNavigationView.MenuItems.Add(browseItem);
             this.mainNavigationView.MenuItems.Add(workoutItem);
+            this.mainNavigationView.MenuItems.Add(loginItem);
 
             this.mainNavigationView.SelectionChanged += MainNavigationView_SelectionChanged;
 

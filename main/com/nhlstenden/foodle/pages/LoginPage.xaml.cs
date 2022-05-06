@@ -8,6 +8,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Security.Cryptography.X509Certificates;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -49,11 +50,19 @@ namespace CMS.main.com.nhlstenden.foodle.pages
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
             CreateUser(UserNameInput.Text);
             updateCombobox(retrieveUsers());
+            // Create the message dialog and set its content
+            var messageDialog = new MessageDialog("User has been created.");
+
+            // Show the message dialog
+            await messageDialog.ShowAsync();
         }
+
+
+
 
         private List<String> retrieveUsers()
         {

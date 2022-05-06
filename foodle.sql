@@ -222,4 +222,8 @@ ALTER TABLE workout_session
 CREATE LOGIN SQLLogin1 WITH PASSWORD = 'SQLLogin';
 USE Foodle;
 CREATE USER SQLLogin1 FOR LOGIN SQLLogin1;
-GO;
+
+USE [Foodle]
+GO
+ALTER ROLE [db_owner] ADD MEMBER [SQLLogin1]
+GO

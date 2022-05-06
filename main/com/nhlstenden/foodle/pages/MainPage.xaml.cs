@@ -66,7 +66,7 @@ namespace CMS
                 Icon = new FontIcon()
                 {
                     FontFamily = iconFont,
-                    Glyph = "\xe008"
+                    Glyph = "\xE748"
                 }
             };
 

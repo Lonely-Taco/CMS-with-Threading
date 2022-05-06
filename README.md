@@ -12,7 +12,22 @@ A project for the C# Threading module by Rob Smit at NHL Stenden.
 - [Ramon Brakels](https://www.github.com/Ramonb2)
 - [Carla Redmond](https://www.github.com/red-carla)
 
+# Run locally
+Clone the project into Visual Studio
 
+```bash
+  git clone https://github.com/Lonely-Taco/CMS-with-Threading
+```
+
+Go to the project directory
+
+Create secrets
+
+Install the database (see below)
+
+Create connection in Visual Studio
+
+Build solution
 
 ## Database Installation
 

@@ -33,7 +33,7 @@ namespace CMS.main.com.nhlstenden.foodle
         public int ExpectedCaloriesBurned { get => expectedCaloriesBurned; set => expectedCaloriesBurned = value; }
         public List<WorkoutSession> GetWorkoutSessions { get => workoutSessions; }
 
-        public void addWorkoutSession(WorkoutSession workoutSession)
+        public void AddWorkoutSession(WorkoutSession workoutSession)
         {
             workoutSessions.Add(workoutSession);
         }

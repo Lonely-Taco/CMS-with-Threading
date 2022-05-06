@@ -29,7 +29,7 @@ namespace CMS
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private FontFamily iconFont;
+        private readonly FontFamily iconFont;
 
         public MainPage()
         {

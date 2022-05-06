@@ -20,10 +20,7 @@ namespace CMS.main.com.nhlstenden.foodle.utility
 
         private static Food FoodResponseObjectToFood(EdamamResponseObject.Food foodResponseObject)
         {
-            //default image
-            Uri uri = new Uri("https://www.englishclub.com/images/vocabulary/food/italian/bruschetta.jpg");
-
-            Uri.TryCreate(foodResponseObject.image, UriKind.Absolute, out uri);
+            Uri.TryCreate(foodResponseObject.image, UriKind.Absolute, out Uri uri);
             return new Food(
                 foodResponseObject.foodId, 
                 foodResponseObject.label, 
@@ -36,12 +33,14 @@ namespace CMS.main.com.nhlstenden.foodle.utility
 
         private static List<Nutrient> NutrientsRepsonseObjectToNutrients(EdamamResponseObject.Nutrients nutrientsResponseObject)
         {
-            List<Nutrient> nutrients = new List<Nutrient>();
-            nutrients.Add(new Nutrient(nutrientsResponseObject.CHOCDF, NutrientType.CHOCDF));
-            nutrients.Add(new Nutrient(nutrientsResponseObject.PROCNT, NutrientType.PRONCT));
-            nutrients.Add(new Nutrient(nutrientsResponseObject.ENERC_KCAL, NutrientType.ENERC_KAL));
-            nutrients.Add(new Nutrient(nutrientsResponseObject.FAT, NutrientType.FAT));
-            nutrients.Add(new Nutrient(nutrientsResponseObject.FIBTG, NutrientType.FIBTG));
+            List<Nutrient> nutrients = new List<Nutrient>
+            {
+                new Nutrient(nutrientsResponseObject.CHOCDF, NutrientType.CHOCDF),
+                new Nutrient(nutrientsResponseObject.PROCNT, NutrientType.PRONCT),
+                new Nutrient(nutrientsResponseObject.ENERC_KCAL, NutrientType.ENERC_KAL),
+                new Nutrient(nutrientsResponseObject.FAT, NutrientType.FAT),
+                new Nutrient(nutrientsResponseObject.FIBTG, NutrientType.FIBTG)
+            };
             return nutrients;
         }
     }
